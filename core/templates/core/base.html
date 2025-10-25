@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mujadadi Group - Leading African Conglomerate{% endblock %}</title>
+    <meta name="description" content="{% block description %}Mujadadi Group is a diversified African conglomerate engaged in Agriculture, Pharmacy, Supply Chain, Logistics, Contracting, Energy, and Real Estate & Infrastructure.{% endblock %}">
+    <meta name="keywords" content="Mujadadi Group, Africa, Agriculture, Pharmacy, Supply Chain, Logistics, Energy, Real Estate, Contracting">
+    <meta name="author" content="Mujadadi Group">
+    <meta property="og:title" content="{% block og_title %}{{ block.super }}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}{{ block.super }}{% endblock %}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Professional Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Agriculture Theme CSS -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/css/agriculture-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/amazon-level-theme.css' %}">
+    
+    <style>
+        :root {
+            --primary-color: #1B4332;
+            --primary-light: #2D5A3D;
+            --secondary-color: #40916C;
+            --accent-color: #52B788;
+            --accent-light: #B7E4C7;
+            --success-color: #2D5016;
+            --text-dark: #1B4332;
+            --text-medium: #2D5A3D;
+            --text-light: #52796F;
+            --text-lighter: #74A892;
+            --bg-light: #F1F8E9;
+            --bg-lighter: #FFFFFF;
+            --border-light: #D4E6D4;
+            --shadow-sm: 0 1px 2px 0 rgba(27, 67, 50, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(27, 67, 50, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(27, 67, 50, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(27, 67, 50, 0.1);
+            --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent-color) 0%, #74C69D 100%);
+        }
+        
+        * {
+            font-family: 'Source Sans Pro', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        body {
+            line-height: 1.75;
+            color: var(--text-dark);
+            font-weight: 400;
+            background: var(--bg-lighter);
+        }
+        
+        .display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.025em;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.3;
+        }
+        
+        .section-padding {
+            padding: 140px 0;
+        }
+        
+        .section-padding-sm {
+            padding: 100px 0;
+        }
+        
+        .section-padding-xs {
+            padding: 60px 0;
+        }
+        
+        .text-gradient {
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary-color) !important;
+        }
+        
+        .btn-premium {
+            background: var(--gradient-accent);
+            border: none;
+            color: white;
+            font-weight: 600;
+            border-radius: 50px;
+            padding: 16px 32px;
+            font-size: 1rem;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(82, 183, 136, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-premium:hover::before {
+            left: 100%;
+        }
+        
+        .btn-premium:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(82, 183, 136, 0.4);
+            color: white;
+        }
+        
+        .btn-outline-premium {
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            font-weight: 600;
+            border-radius: 50px;
+            padding: 14px 32px;
+            transition: all 0.4s ease;
+        }
+        
+        .btn-outline-premium:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.5);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .text-gradient-green {
+            background: linear-gradient(135deg, #52B788, #74C69D, #95D5B2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .px-6 {
+            padding-left: 2.5rem !important;
+            padding-right: 2.5rem !important;
+        }
+        
+        .hero-section-premium {
+            background: linear-gradient(135deg, #1B4332 0%, #2D5A3D 25%, #40916C 50%, #52B788 100%);
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        .hero-bg-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(82, 183, 136, 0.1), rgba(116, 198, 157, 0.1));
+            animation: float 20s infinite linear;
+        }
+        
+        .element-1 {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            right: -150px;
+            animation-delay: 0s;
+        }
+        
+        .element-2 {
+            width: 200px;
+            height: 200px;
+            bottom: 20%;
+            left: -100px;
+            animation-delay: -10s;
+        }
+        
+        .element-3 {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            right: 20%;
+            animation-delay: -5s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(90deg); }
+            50% { transform: translateY(-10px) rotate(180deg); }
+            75% { transform: translateY(-30px) rotate(270deg); }
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            padding: 12px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .badge-icon {
+            font-size: 1.2rem;
+            margin-right: 8px;
+        }
+        
+        .badge-text {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .badge-shine {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .hero-headline {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+        }
+        
+        .headline-main {
+            display: block;
+            color: white;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .headline-accent {
+            display: block;
+            background: linear-gradient(135deg, #52B788, #74C69D, #95D5B2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Playfair Display', serif;
+            position: relative;
+        }
+        
+        .headline-sub {
+            display: block;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.6em;
+            font-weight: 600;
+            font-family: 'Space Grotesk', sans-serif;
+            margin-top: 0.5rem;
+        }
+        
+        .hero-description {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            font-weight: 300;
+        }
+        
+        .stats-container {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .stat-card {
+            position: relative;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #52B788;
+            font-family: 'Space Grotesk', sans-serif;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+        
+        .stat-divider {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.3), transparent);
+        }
+        
+        .hero-cta-container {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .btn-hero-primary {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, #52B788, #74C69D);
+            color: white;
+            padding: 18px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 32px rgba(82, 183, 136, 0.3);
+        }
+        
+        .btn-hero-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(82, 183, 136, 0.4);
+            color: white;
+        }
+        
+        .btn-hero-secondary {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.4s ease;
+        }
+        
+        .btn-hero-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .hero-visual-container {
+            position: relative;
+        }
+        
+        .hero-image-frame {
+            position: relative;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 32px 64px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        
+        .image-overlay-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(10, 14, 26, 0.3), rgba(37, 99, 235, 0.1));
+        }
+        
+        .hero-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+        }
+        
+        .hero-indicators button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .hero-indicators button.active {
+            background: #52B788;
+            border-color: #52B788;
+            box-shadow: 0 0 20px rgba(82, 183, 136, 0.5);
+        }
+        
+        .hero-floating-stats {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+        }
+        
+        .floating-stat {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            animation: floatStat 6s ease-in-out infinite;
+        }
+        
+        .stat-1 {
+            top: 20%;
+            right: -20px;
+            animation-delay: 0s;
+        }
+        
+        .stat-2 {
+            bottom: 30%;
+            left: -20px;
+            animation-delay: 3s;
+        }
+        
+        .stat-icon {
+            font-size: 1.2rem;
+        }
+        
+        .stat-text {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: white;
+        }
+        
+        @keyframes floatStat {
+            0%, 100% { transform: translateY(0px); opacity: 0.8; }
+            50% { transform: translateY(-10px); opacity: 1; }
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            animation: bounce 2s infinite;
+        }
+        
+        .scroll-text {
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .scroll-arrow {
+            font-size: 1.2rem;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+        
+        .card {
+            border: none;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .text-accent {
+            color: var(--accent-color) !important;
+        }
+        
+        .bg-light-custom {
+            background-color: var(--bg-light) !important;
+        }
+        
+        .navbar {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.98) !important;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+            border-bottom: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+            padding: 1rem 0;
+        }
+        
+        .navbar-scrolled {
+            padding: 0.5rem 0;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            color: var(--text-medium) !important;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-accent);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .footer {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .stats-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255,255,255,0.8);
+        }
+        
+        .premium-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        
+        .icon-wrapper {
+            position: relative;
+        }
+        
+        .icon-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(27, 67, 50, 0.1), rgba(64, 145, 108, 0.1));
+            border-radius: 50%;
+            z-index: -1;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            border: 1px solid var(--border-light);
+        }
+        
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-accent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .category-card:hover::before {
+            opacity: 1;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 32px 64px rgba(0,0,0,0.12);
+            border-color: var(--accent-color);
+        }
+        
+        .bg-primary-light {
+            background-color: rgba(37, 99, 235, 0.1) !important;
+        }
+        
+        .text-primary {
+            color: var(--secondary-color) !important;
+        }
+        
+        .premium-logo {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-hexagon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(27, 67, 50, 0.2);
+        }
+        
+        .logo-letter {
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .logo-accent-line {
+            width: 3px;
+            height: 25px;
+            background: linear-gradient(to bottom, var(--accent-color), transparent);
+            margin-left: 8px;
+            border-radius: 2px;
+        }
+        
+        .brand-stack {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+        
+        .brand-main {
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+        }
+        
+        .brand-sub {
+            font-weight: 500;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            letter-spacing: 2px;
+            margin-top: -2px;
+        }
+        
+        .hero-premium-logo {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero-hexagon {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+        
+        .hero-letter {
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+        }
+        
+        .hero-accent-lines {
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px;
+            gap: 8px;
+        }
+        
+        .accent-line-1, .accent-line-2 {
+            height: 4px;
+            border-radius: 2px;
+            background: linear-gradient(to right, var(--accent-color), rgba(82, 183, 136, 0.3));
+        }
+        
+        .accent-line-1 {
+            width: 60px;
+        }
+        
+        .accent-line-2 {
+            width: 40px;
+        }
+        
+        .category-logo {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .category-m {
+            font-family: 'Georgia', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-shadow: 2px 2px 4px rgba(0,47,95,0.1);
+            position: relative;
+        }
+        
+        .category-dot {
+            width: 12px;
+            height: 12px;
+            background: linear-gradient(45deg, var(--accent-color), #74C69D);
+            border-radius: 50%;
+            position: absolute;
+            top: 12px;
+            right: -6px;
+            box-shadow: 0 3px 6px rgba(82, 183, 136, 0.3);
+        }
+        
+        .hero-image-container {
+            position: relative;
+            height: 450px;
+            overflow: hidden;
+        }
+        
+        .hero-image-container img {
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(27, 67, 50, 0.1), rgba(64, 145, 108, 0.1));
+        }
+        
+        .carousel-indicators {
+            bottom: 20px;
+        }
+        
+        .carousel-indicators button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid white;
+            background: transparent;
+            margin: 0 6px;
+        }
+        
+        .carousel-indicators button.active {
+            background: white;
+        }
+        
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 8%;
+        }
+        
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-size: 20px 20px;
+            background-color: rgba(255,255,255,0.8);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+        }
+        
+        .cta-premium {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            box-shadow: 0 20px 60px rgba(27, 67, 50, 0.3);
+        }
+        
+        .cta-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+        }
+        
+        .text-white-75 {
+            color: rgba(255,255,255,0.85) !important;
+        }
+        
+        @media (max-width: 768px) {
+            .display-3 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-section {
+                min-height: 70vh;
+                padding: 60px 0;
+            }
+            
+            .section-padding {
+                padding: 80px 0;
+            }
+            
+            .section-padding-sm {
+                padding: 60px 0;
+            }
+            
+            .hero-image-container {
+                height: 300px;
+            }
+            
+            .stats-card {
+                padding: 1.5rem;
+            }
+        }
+        
+        .gallery-card {
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        
+        .gallery-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15) !important;
+        }
+        
+        .gallery-overlay {
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-card:hover .gallery-overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <div class="d-flex align-items-center">
+                    <div class="premium-logo me-2">
+                        <div class="logo-hexagon">
+                            <span class="logo-letter">M</span>
+                        </div>
+                        <div class="logo-accent-line"></div>
+                    </div>
+                    <div class="brand-stack">
+                        <span class="brand-main">MUJADADI</span>
+                        <span class="brand-sub">GROUP</span>
+                    </div>
+                </div>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fw-semibold" href="#" role="button" data-bs-toggle="dropdown">
+                            Business Units
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'category_detail' 'agric' %}">Agriculture</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category_detail' 'pharmacy' %}">Pharmacy & Labs</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category_detail' 'supply-chain' %}">Supply Chain</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category_detail' 'logistics' %}">Logistics</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category_detail' 'contractor' %}">Contracting</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category_detail' 'energy' %}">Energy</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category_detail' 'real-estate' %}">Real Estate</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="{% url 'about' %}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="{% url 'careers' %}">Careers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold" href="{% url 'contact' %}">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer py-5 mt-5" style="background: linear-gradient(135deg, #0F2027 0%, #203A43 25%, #2C5364 50%, #1B4332 75%, #2D5A3D 100%); position: relative; overflow: hidden; box-shadow: 0 -10px 30px rgba(0,0,0,0.3);">
+        <!-- Background Elements -->
+        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: radial-gradient(circle at 20% 50%, rgba(82, 183, 136, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(116, 198, 157, 0.08) 0%, transparent 50%); z-index: 1;"></div>
+        <div class="position-absolute" style="top: -50px; right: -50px; width: 200px; height: 200px; background: linear-gradient(45deg, rgba(82, 183, 136, 0.05), rgba(116, 198, 157, 0.03)); border-radius: 50%; z-index: 1;"></div>
+        <div class="position-absolute" style="bottom: -30px; left: -30px; width: 150px; height: 150px; background: linear-gradient(45deg, rgba(64, 145, 108, 0.04), rgba(82, 183, 136, 0.02)); border-radius: 50%; z-index: 1;"></div>
+        
+        <div class="container position-relative" style="z-index: 2;">
+            <div class="row g-4">
+                <!-- Company Info -->
+                <div class="col-lg-4 mb-4">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="premium-logo me-3">
+                            <div class="logo-hexagon" style="background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1)); border: 2px solid rgba(255,255,255,0.3);">
+                                <span class="logo-letter" style="color: white;">M</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="fw-bold text-white mb-1">Mujadadi Group</h4>
+                            <small class="text-white-50">Africa's Premier Conglomerate</small>
+                        </div>
+                    </div>
+                    <p class="text-white-75 mb-4 lh-lg">Transforming Africa through innovation, sustainability, and excellence across seven strategic industries. Building the future, one solution at a time.</p>
+                    
+                    <!-- Social Media -->
+                    <div class="d-flex gap-3 mb-4">
+                        <a href="https://linkedin.com/company/mujadadi-group" target="_blank" class="btn btn-outline-light btn-sm rounded-circle" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-color: rgba(255,255,255,0.3); transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="https://twitter.com/mujadadigroup" target="_blank" class="btn btn-outline-light btn-sm rounded-circle" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-color: rgba(255,255,255,0.3); transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                        <a href="https://facebook.com/mujadadigroup" target="_blank" class="btn btn-outline-light btn-sm rounded-circle" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-color: rgba(255,255,255,0.3); transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="https://instagram.com/mujadadigroup" target="_blank" class="btn btn-outline-light btn-sm rounded-circle" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-color: rgba(255,255,255,0.3); transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                    </div>
+                    
+                    <!-- Stats -->
+                    <div class="row g-3">
+                        <div class="col-4">
+                            <div class="text-center p-3 rounded-3" style="background: linear-gradient(135deg, rgba(82, 183, 136, 0.2), rgba(116, 198, 157, 0.1)); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.1);">
+                                <h5 class="fw-bold text-white mb-1">7</h5>
+                                <small class="text-white-50">Subsidiaries</small>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="text-center p-3 rounded-3" style="background: linear-gradient(135deg, rgba(64, 145, 108, 0.2), rgba(82, 183, 136, 0.1)); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.1);">
+                                <h5 class="fw-bold text-white mb-1">15+</h5>
+                                <small class="text-white-50">Countries</small>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="text-center p-3 rounded-3" style="background: linear-gradient(135deg, rgba(45, 90, 61, 0.3), rgba(64, 145, 108, 0.1)); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.1);">
+                                <h5 class="fw-bold text-white mb-1">25+</h5>
+                                <small class="text-white-50">Years</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Business Units -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="fw-bold text-white mb-4"><i class="bi bi-building me-2"></i>Subsidiaries</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="{% url 'category_detail' 'agric' %}" class="text-white-50 text-decoration-none d-flex align-items-center" style="transition: all 0.3s ease;" onmouseover="this.style.color='#74C69D'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">
+                            <i class="bi bi-tree me-2 text-success"></i>Agriculture
+                        </a></li>
+                        <li class="mb-2"><a href="{% url 'category_detail' 'pharmacy' %}" class="text-white-50 text-decoration-none d-flex align-items-center" style="transition: all 0.3s ease;" onmouseover="this.style.color='#74C69D'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">
+                            <i class="bi bi-heart-pulse me-2 text-primary"></i>Pharmacy
+                        </a></li>
+                        <li class="mb-2"><a href="{% url 'category_detail' 'supply-chain' %}" class="text-white-50 text-decoration-none d-flex align-items-center" style="transition: all 0.3s ease;" onmouseover="this.style.color='#74C69D'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">
+                            <i class="bi bi-boxes me-2 text-info"></i>Supply Chain
+                        </a></li>
+                        <li class="mb-2"><a href="{% url 'category_detail' 'logistics' %}" class="text-white-50 text-decoration-none d-flex align-items-center" style="transition: all 0.3s ease;" onmouseover="this.style.color='#74C69D'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">
+                            <i class="bi bi-truck me-2 text-warning"></i>Logistics
+                        </a></li>
+                        <li class="mb-2"><a href="{% url 'category_detail' 'contractor' %}" class="text-white-50 text-decoration-none d-flex align-items-center" style="transition: all 0.3s ease;" onmouseover="this.style.color='#74C69D'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">
+                            <i class="bi bi-hammer me-2 text-secondary"></i>Contracting
+                        </a></li>
+                        <li class="mb-2"><a href="{% url 'category_detail' 'energy' %}" class="text-white-50 text-decoration-none d-flex align-items-center" style="transition: all 0.3s ease;" onmouseover="this.style.color='#74C69D'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">
+                            <i class="bi bi-lightning me-2 text-danger"></i>Energy
+                        </a></li>
+                        <li class="mb-2"><a href="{% url 'category_detail' 'real-estate' %}" class="text-white-50 text-decoration-none d-flex align-items-center" style="transition: all 0.3s ease;" onmouseover="this.style.color='#74C69D'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">
+                            <i class="bi bi-buildings me-2 text-dark"></i>Real Estate
+                        </a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company Links -->
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="fw-bold text-white mb-4"><i class="bi bi-info-circle me-2"></i>Company</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="{% url 'about' %}" class="text-white-50 text-decoration-none" style="transition: all 0.3s ease;" onmouseover="this.style.color='#74C69D'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">About Us</a></li>
+                        <li class="mb-2"><a href="{% url 'careers' %}" class="text-white-50 text-decoration-none" style="transition: all 0.3s ease;" onmouseover="this.style.color='#74C69D'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Careers</a></li>
+                        <li class="mb-2"><a href="{% url 'contact' %}" class="text-white-50 text-decoration-none" style="transition: all 0.3s ease;" onmouseover="this.style.color='#74C69D'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Contact</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none" style="transition: all 0.3s ease;" onmouseover="this.style.color='#74C69D'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Investor Relations</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none" style="transition: all 0.3s ease;" onmouseover="this.style.color='#74C69D'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Sustainability</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50 text-decoration-none" style="transition: all 0.3s ease;" onmouseover="this.style.color='#74C69D'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">News & Media</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="col-lg-4 mb-4">
+                    <h6 class="fw-bold text-white mb-4"><i class="bi bi-telephone me-2"></i>Get In Touch</h6>
+                    
+                    <!-- Address -->
+                    <div class="mb-4 p-3 rounded-3" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
+                        <div class="d-flex align-items-start mb-3">
+                            <i class="bi bi-geo-alt text-success me-3 mt-1"></i>
+                            <div>
+                                <h6 class="text-white fw-semibold mb-2">Head Office</h6>
+                                {% if contact_info %}
+                                    <p class="text-white-75 mb-0 small lh-lg">{{ contact_info.head_office }}</p>
+                                    {% if contact_info.annex_office %}
+                                        <p class="text-white-50 mb-0 small mt-2"><strong>Annex:</strong> {{ contact_info.annex_office }}</p>
+                                    {% endif %}
+                                {% else %}
+                                    <p class="text-white-75 mb-0 small lh-lg">No. 14, Ganbe Village, Oke Ose, Opposite Ilorin East Local Government Secretariat, Ilorin, Kwara State, Nigeria</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Details -->
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <div class="d-flex align-items-center p-4 rounded-4" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(37, 99, 235, 0.05)); backdrop-filter: blur(15px); border: 1px solid rgba(59, 130, 246, 0.2); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(59, 130, 246, 0.2)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                                <div class="d-flex align-items-center justify-content-center rounded-3 me-3" style="width: 50px; height: 50px; background: linear-gradient(135deg, #3B82F6, #1E40AF);">
+                                    <i class="bi bi-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <small class="text-white-50 d-block mb-1">General Inquiries</small>
+                                    <a href="mailto:info@mujadadi.com" class="text-white text-decoration-none fw-bold">info@mujadadi.com</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-flex align-items-center p-4 rounded-4" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(217, 119, 6, 0.05)); backdrop-filter: blur(15px); border: 1px solid rgba(245, 158, 11, 0.2); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(245, 158, 11, 0.2)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                                <div class="d-flex align-items-center justify-content-center rounded-3 me-3" style="width: 50px; height: 50px; background: linear-gradient(135deg, #F59E0B, #D97706);">
+                                    <i class="bi bi-briefcase text-white"></i>
+                                </div>
+                                <div>
+                                    <small class="text-white-50 d-block mb-1">Business Partnerships</small>
+                                    <a href="mailto:partnerships@mujadadi.com" class="text-white text-decoration-none fw-bold">partnerships@mujadadi.com</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-flex align-items-center p-4 rounded-4" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(22, 163, 74, 0.05)); backdrop-filter: blur(15px); border: 1px solid rgba(34, 197, 94, 0.2); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(34, 197, 94, 0.2)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                                <div class="d-flex align-items-center justify-content-center rounded-3 me-3" style="width: 50px; height: 50px; background: linear-gradient(135deg, #22C55E, #16A34A);">
+                                    <i class="bi bi-phone text-white"></i>
+                                </div>
+                                <div>
+                                    <small class="text-white-50 d-block mb-1">Phone Support</small>
+                                    {% if contact_info %}
+                                        {% for phone in contact_info.get_phone_list %}
+                                            {% if forloop.first %}
+                                                <a href="tel:{{ phone }}" class="text-white text-decoration-none fw-bold">{{ phone }}</a>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% else %}
+                                        <a href="tel:+2347031996548" class="text-white text-decoration-none fw-bold">+234 703 199 6548</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Business Hours -->
+                    <div class="mt-4 p-4 rounded-4" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(67, 56, 202, 0.05)); backdrop-filter: blur(15px); border: 1px solid rgba(99, 102, 241, 0.2);">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="d-flex align-items-center justify-content-center rounded-3 me-3" style="width: 40px; height: 40px; background: linear-gradient(135deg, #6366F1, #4338CA);">
+                                <i class="bi bi-clock text-white"></i>
+                            </div>
+                            <h6 class="text-white fw-bold mb-0">Business Hours</h6>
+                        </div>
+                        <div class="text-white-75">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span>Monday - Friday:</span>
+                                <span class="fw-semibold">8:00 AM - 6:00 PM WAT</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span>Saturday:</span>
+                                <span class="fw-semibold">9:00 AM - 2:00 PM WAT</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom Section -->
+            <hr class="my-5" style="border-color: rgba(255,255,255,0.2);">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-3 mb-lg-0">
+                    <div class="d-flex align-items-center">
+                        <p class="text-white-50 mb-0 me-4">&copy; 2024 Mujadadi Group. All rights reserved.</p>
+                        <div class="d-flex gap-3">
+                            <a href="{% url 'privacy_policy' %}" class="text-white-50 text-decoration-none small" style="transition: all 0.3s ease;" onmouseover="this.style.color='#74C69D'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Privacy Policy</a>
+                            <a href="{% url 'terms_of_service' %}" class="text-white-50 text-decoration-none small" style="transition: all 0.3s ease;" onmouseover="this.style.color='#74C69D'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Terms of Service</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-lg-end">
+                    <div class="d-flex align-items-center justify-content-lg-end gap-4 flex-wrap">
+                        <div class="d-flex align-items-center px-3 py-2 rounded-pill" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(22, 163, 74, 0.1)); border: 1px solid rgba(34, 197, 94, 0.3);">
+                            <i class="bi bi-shield-check text-success me-2"></i>
+                            <small class="text-white fw-semibold">ISO Certified</small>
+                        </div>
+                        <div class="d-flex align-items-center px-3 py-2 rounded-pill" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(217, 119, 6, 0.1)); border: 1px solid rgba(245, 158, 11, 0.3);">
+                            <i class="bi bi-award text-warning me-2"></i>
+                            <small class="text-white fw-semibold">25+ Years Excellence</small>
+                        </div>
+                        <div class="d-flex align-items-center px-3 py-2 rounded-pill" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(37, 99, 235, 0.1)); border: 1px solid rgba(59, 130, 246, 0.3);">
+                            <i class="bi bi-globe-africa text-info me-2"></i>
+                            <small class="text-white fw-semibold">Pan-African Reach</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

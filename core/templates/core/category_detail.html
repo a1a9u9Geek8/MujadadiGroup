@@ -1,0 +1,357 @@
+{% extends "core/base.html" %}
+{% block title %}{{ category.name }} | Mujadadi Group{% endblock %}
+{% block description %}{{ category.description }}{% endblock %}
+
+{% block content %}
+<!-- Dynamic Color Scheme Based on Category -->
+{% if category.slug == 'agric' %}
+    {% comment %} Agriculture - Green Theme {% endcomment %}
+    <style>
+        :root {
+            --primary-color: #1B4332;
+            --accent-color: #52B788;
+            --secondary-color: #74C69D;
+            --gradient-bg: linear-gradient(135deg, #52B788, #74C69D);
+            --dark-gradient: linear-gradient(135deg, #1B4332, #2D5A3D);
+        }
+    </style>
+{% elif category.slug == 'pharmacy' %}
+    {% comment %} Pharmacy - Medical Blue Theme {% endcomment %}
+    <style>
+        :root {
+            --primary-color: #1E3A8A;
+            --accent-color: #3B82F6;
+            --secondary-color: #60A5FA;
+            --gradient-bg: linear-gradient(135deg, #3B82F6, #60A5FA);
+            --dark-gradient: linear-gradient(135deg, #1E3A8A, #1E40AF);
+        }
+    </style>
+{% elif category.slug == 'supply-chain' %}
+    {% comment %} Supply Chain - Professional Orange Theme {% endcomment %}
+    <style>
+        :root {
+            --primary-color: #C2410C;
+            --accent-color: #EA580C;
+            --secondary-color: #FB923C;
+            --gradient-bg: linear-gradient(135deg, #EA580C, #FB923C);
+            --dark-gradient: linear-gradient(135deg, #C2410C, #DC2626);
+        }
+    </style>
+{% elif category.slug == 'logistics' %}
+    {% comment %} Logistics - Industrial Gray Theme {% endcomment %}
+    <style>
+        :root {
+            --primary-color: #374151;
+            --accent-color: #6B7280;
+            --secondary-color: #9CA3AF;
+            --gradient-bg: linear-gradient(135deg, #6B7280, #9CA3AF);
+            --dark-gradient: linear-gradient(135deg, #374151, #4B5563);
+        }
+    </style>
+{% elif category.slug == 'contractor' %}
+    {% comment %} Construction - Bold Yellow Theme {% endcomment %}
+    <style>
+        :root {
+            --primary-color: #A16207;
+            --accent-color: #D97706;
+            --secondary-color: #F59E0B;
+            --gradient-bg: linear-gradient(135deg, #D97706, #F59E0B);
+            --dark-gradient: linear-gradient(135deg, #A16207, #B45309);
+        }
+    </style>
+{% elif category.slug == 'energy' %}
+    {% comment %} Energy - Electric Purple Theme {% endcomment %}
+    <style>
+        :root {
+            --primary-color: #7C2D12;
+            --accent-color: #DC2626;
+            --secondary-color: #EF4444;
+            --gradient-bg: linear-gradient(135deg, #DC2626, #EF4444);
+            --dark-gradient: linear-gradient(135deg, #7C2D12, #991B1B);
+        }
+    </style>
+{% elif category.slug == 'real-estate' %}
+    {% comment %} Real Estate - Sophisticated Navy Theme {% endcomment %}
+    <style>
+        :root {
+            --primary-color: #1E293B;
+            --accent-color: #475569;
+            --secondary-color: #64748B;
+            --gradient-bg: linear-gradient(135deg, #475569, #64748B);
+            --dark-gradient: linear-gradient(135deg, #1E293B, #334155);
+        }
+    </style>
+{% else %}
+    {% comment %} Default - Green Theme {% endcomment %}
+    <style>
+        :root {
+            --primary-color: #1B4332;
+            --accent-color: #52B788;
+            --secondary-color: #74C69D;
+            --gradient-bg: linear-gradient(135deg, #52B788, #74C69D);
+            --dark-gradient: linear-gradient(135deg, #1B4332, #2D5A3D);
+        }
+    </style>
+{% endif %}
+
+<!-- Hero Section -->
+<section class="premium-section" style="background: linear-gradient(135deg, #f8fafb 0%, #ffffff 100%); padding: 120px 0;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <nav aria-label="breadcrumb" class="mb-4">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'home' %}" class="text-decoration-none" style="color: var(--accent-color);">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{% url 'home' %}#business-units" class="text-decoration-none" style="color: var(--accent-color);">Subsidiaries</a></li>
+                        <li class="breadcrumb-item active" style="color: #6B7280;">{{ category.name }}</li>
+                    </ol>
+                </nav>
+                
+                <div class="mb-4">
+                    <span class="badge" style="background: var(--dark-gradient); color: white; padding: 8px 20px; border-radius: 25px; font-size: 0.85rem; font-weight: 600;">Mujadadi Group Subsidiary</span>
+                </div>
+                
+                <h1 class="display-3 fw-bold mb-4" style="color: var(--primary-color); line-height: 1.1;">
+                    Mujadadi <span style="color: var(--accent-color);">{{ category.name }}</span>
+                </h1>
+                
+                <p class="lead mb-5" style="color: #6B7280; font-size: 1.25rem; line-height: 1.7;">
+                    {{ category.description|default:"Leading provider of innovative solutions and services across Africa, delivering excellence and sustainable growth through professional expertise and cutting-edge technology." }}
+                </p>
+                
+                <div class="d-flex gap-3 flex-wrap">
+                    <a href="#services" class="btn" style="background: var(--gradient-bg); color: white; padding: 14px 32px; border-radius: 8px; font-weight: 600; text-decoration: none; border: none;">Our Services</a>
+                    <a href="{% url 'contact' %}" class="btn" style="background: transparent; color: var(--accent-color); border: 2px solid var(--accent-color); padding: 12px 32px; border-radius: 8px; font-weight: 600; text-decoration: none;">Get In Touch</a>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                {% if category.hero_image %}
+                <div class="position-relative">
+                    <img src="{{ category.hero_image.url }}" class="img-fluid rounded-4 shadow-lg" alt="{{ category.name }}" style="width: 100%; height: 450px; object-fit: cover;">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 rounded-4" style="background: linear-gradient(45deg, rgba(var(--primary-color), 0.1), transparent);"></div>
+                </div>
+                {% else %}
+                <div class="text-center p-5 rounded-4 shadow-sm" style="background: linear-gradient(145deg, #ffffff, #f8fafb); border: 1px solid #e5e7eb;">
+                    <div class="d-inline-flex align-items-center justify-content-center rounded-3 mb-4" style="width: 120px; height: 120px; background: var(--gradient-bg); color: white; font-size: 3rem;">
+                        {% if category.slug == 'agric' %}
+                            <i class="bi bi-tree"></i>
+                        {% elif category.slug == 'pharmacy' %}
+                            <i class="bi bi-heart-pulse"></i>
+                        {% elif category.slug == 'supply-chain' %}
+                            <i class="bi bi-boxes"></i>
+                        {% elif category.slug == 'logistics' %}
+                            <i class="bi bi-truck"></i>
+                        {% elif category.slug == 'contractor' %}
+                            <i class="bi bi-hammer"></i>
+                        {% elif category.slug == 'energy' %}
+                            <i class="bi bi-lightning"></i>
+                        {% elif category.slug == 'real-estate' %}
+                            <i class="bi bi-buildings"></i>
+                        {% else %}
+                            <i class="bi bi-building"></i>
+                        {% endif %}
+                    </div>
+                    <h3 class="fw-bold mb-3" style="color: var(--primary-color);">{{ category.name }}</h3>
+                    <p style="color: #6B7280;">Excellence in every solution we deliver</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" style="padding: 100px 0; background: #ffffff;">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold mb-4" style="color: var(--primary-color);">Our {{ category.name }} Services</h2>
+            <p class="lead" style="color: #6B7280; max-width: 600px; margin: 0 auto;">Comprehensive solutions tailored to drive your success and create sustainable value</p>
+        </div>
+        
+        {% if category.services.all %}
+        <div class="row g-4">
+            {% for service in category.services.all %}
+            <div class="col-lg-4 col-md-6">
+                <div class="h-100 p-4 rounded-4 shadow-sm service-card" style="background: linear-gradient(145deg, #ffffff, #f8fafb); border: 1px solid #e5e7eb; transition: all 0.3s ease;">
+                    {% if service.image %}
+                    <div class="position-relative overflow-hidden rounded-3 mb-4">
+                        <img src="{{ service.image.url }}" class="img-fluid" alt="{{ service.title }}" style="width: 100%; height: 200px; object-fit: cover;">
+                        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(transparent, rgba(0,0,0,0.2));"></div>
+                    </div>
+                    {% endif %}
+                    
+                    <h5 class="fw-bold mb-3" style="color: var(--primary-color);">{{ service.title }}</h5>
+                    <p class="mb-3" style="color: #6B7280; line-height: 1.6;">{{ service.description|default:"Professional service designed to meet your specific needs and drive business growth through innovative solutions." }}</p>
+                    <div class="d-flex align-items-center justify-content-between mt-auto">
+                        {% if category.slug == 'agric' %}
+                            <small class="text-muted"><i class="bi bi-leaf text-success me-1"></i>Farm Ready</small>
+                            <a href="{% url 'contact' %}" class="btn btn-sm" style="background: var(--gradient-bg); color: white; padding: 8px 20px; border-radius: 6px; font-weight: 600; text-decoration: none; border: none;">Get Quote</a>
+                        {% elif category.slug == 'pharmacy' %}
+                            <small class="text-muted"><i class="bi bi-shield-check text-primary me-1"></i>FDA Approved</small>
+                            <a href="{% url 'contact' %}" class="btn btn-sm" style="background: var(--gradient-bg); color: white; padding: 8px 20px; border-radius: 6px; font-weight: 600; text-decoration: none; border: none;">Order Now</a>
+                        {% elif category.slug == 'supply-chain' %}
+                            <small class="text-muted"><i class="bi bi-truck text-warning me-1"></i>In Stock</small>
+                            <a href="{% url 'contact' %}" class="btn btn-sm" style="background: var(--gradient-bg); color: white; padding: 8px 20px; border-radius: 6px; font-weight: 600; text-decoration: none; border: none;">Request Supply</a>
+                        {% elif category.slug == 'logistics' %}
+                            <small class="text-muted"><i class="bi bi-geo-alt text-info me-1"></i>24/7 Service</small>
+                            <a href="{% url 'contact' %}" class="btn btn-sm" style="background: var(--gradient-bg); color: white; padding: 8px 20px; border-radius: 6px; font-weight: 600; text-decoration: none; border: none;">Book Shipment</a>
+                        {% elif category.slug == 'contractor' %}
+                            <small class="text-muted"><i class="bi bi-tools text-secondary me-1"></i>Licensed</small>
+                            <a href="{% url 'contact' %}" class="btn btn-sm" style="background: var(--gradient-bg); color: white; padding: 8px 20px; border-radius: 6px; font-weight: 600; text-decoration: none; border: none;">Get Estimate</a>
+                        {% elif category.slug == 'energy' %}
+                            <small class="text-muted"><i class="bi bi-lightning text-danger me-1"></i>Grid Ready</small>
+                            <a href="{% url 'contact' %}" class="btn btn-sm" style="background: var(--gradient-bg); color: white; padding: 8px 20px; border-radius: 6px; font-weight: 600; text-decoration: none; border: none;">Get Solution</a>
+                        {% elif category.slug == 'real-estate' %}
+                            <small class="text-muted"><i class="bi bi-house-check text-dark me-1"></i>Move-in Ready</small>
+                            <a href="{% url 'contact' %}" class="btn btn-sm" style="background: var(--gradient-bg); color: white; padding: 8px 20px; border-radius: 6px; font-weight: 600; text-decoration: none; border: none;">View Properties</a>
+                        {% else %}
+                            <small class="text-muted"><i class="bi bi-check-circle text-success me-1"></i>Available Now</small>
+                            <a href="{% url 'contact' %}" class="btn btn-sm" style="background: var(--gradient-bg); color: white; padding: 8px 20px; border-radius: 6px; font-weight: 600; text-decoration: none; border: none;">Get Quote</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="text-center p-5 rounded-4 shadow-sm" style="background: linear-gradient(145deg, #f8fafb, #ffffff); border: 1px solid #e5e7eb;">
+            <div class="d-inline-flex align-items-center justify-content-center rounded-3 mb-4" style="width: 80px; height: 80px; background: var(--gradient-bg); color: white; font-size: 2rem;">
+                <i class="bi bi-gear"></i>
+            </div>
+            <h4 class="fw-bold mb-3" style="color: var(--primary-color);">Services Coming Soon</h4>
+            <p class="mb-4" style="color: #6B7280;">We're currently developing our {{ category.name }} service offerings. Check back soon for updates.</p>
+            <a href="{% url 'contact' %}" class="btn" style="background: var(--gradient-bg); color: white; padding: 12px 28px; border-radius: 8px; font-weight: 600; text-decoration: none; border: none;">Contact Us for More Info</a>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Gallery Section -->
+{% if category.gallery.all %}
+<section style="padding: 100px 0; background: linear-gradient(135deg, #f8fafb 0%, #ffffff 100%);">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold mb-4" style="color: var(--primary-color);">Our Work in {{ category.name }}</h2>
+            <p class="lead" style="color: #6B7280;">Showcasing our projects and achievements across Africa</p>
+        </div>
+        
+        <div class="row g-4">
+            {% for image in category.gallery.all|slice:":8" %}
+            <div class="col-lg-3 col-md-6">
+                <div class="position-relative overflow-hidden rounded-3 shadow-sm gallery-item" style="height: 250px;">
+                    <img src="{{ image.image.url }}" class="img-fluid w-100 h-100" alt="{{ image.title }}" style="object-fit: cover;">
+                    <div class="position-absolute bottom-0 start-0 end-0 p-3" style="background: var(--dark-gradient); opacity: 0.9;">
+                        <h6 class="text-white mb-1 fw-bold">{{ image.title }}</h6>
+                        {% if image.description %}
+                        <small class="text-white-50">{{ image.description|truncatewords:8 }}</small>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Why Choose Us Section -->
+<section style="padding: 100px 0; background: #ffffff;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h2 class="display-5 fw-bold mb-5" style="color: var(--primary-color);">Why Choose Mujadadi {{ category.name }}?</h2>
+                
+                <div class="row g-4">
+                    <div class="col-12">
+                        <div class="d-flex align-items-start gap-4">
+                            <div class="d-flex align-items-center justify-content-center rounded-3" style="width: 56px; height: 56px; background: var(--gradient-bg); color: white; font-size: 1.5rem;">
+                                <i class="bi bi-award"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-2" style="color: var(--primary-color);">Proven Excellence</h6>
+                                <p style="color: #6B7280; margin: 0;">25+ years of experience delivering quality solutions across Africa with a track record of successful projects.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12">
+                        <div class="d-flex align-items-start gap-4">
+                            <div class="d-flex align-items-center justify-content-center rounded-3" style="width: 56px; height: 56px; background: var(--dark-gradient); color: white; font-size: 1.5rem;">
+                                <i class="bi bi-people"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-2" style="color: var(--primary-color);">Expert Team</h6>
+                                <p style="color: #6B7280; margin: 0;">Skilled professionals and industry experts dedicated to delivering exceptional results for your business.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12">
+                        <div class="d-flex align-items-start gap-4">
+                            <div class="d-flex align-items-center justify-content-center rounded-3" style="width: 56px; height: 56px; background: var(--gradient-bg); color: white; font-size: 1.5rem;">
+                                <i class="bi bi-globe-africa"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-2" style="color: var(--primary-color);">Pan-African Reach</h6>
+                                <p style="color: #6B7280; margin: 0;">Extensive network and operations across 15+ African markets with deep local expertise.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12">
+                        <div class="d-flex align-items-start gap-4">
+                            <div class="d-flex align-items-center justify-content-center rounded-3" style="width: 56px; height: 56px; background: var(--dark-gradient); color: white; font-size: 1.5rem;">
+                                <i class="bi bi-lightbulb"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-2" style="color: var(--primary-color);">Innovation Focus</h6>
+                                <p style="color: #6B7280; margin: 0;">Cutting-edge solutions and modern approaches to solve complex business challenges.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="text-center p-5 rounded-4 shadow-sm" style="background: linear-gradient(145deg, #ffffff, #f8fafb); border: 1px solid #e5e7eb;">
+                    <div class="d-inline-flex align-items-center justify-content-center rounded-3 mb-4" style="width: 100px; height: 100px; background: var(--gradient-bg); color: white; font-size: 2.5rem;">
+                        <i class="bi bi-graph-up-arrow"></i>
+                    </div>
+                    <h4 class="fw-bold mb-4" style="color: var(--primary-color);">Driving Sustainable Growth</h4>
+                    <p class="mb-4" style="color: #6B7280; line-height: 1.6;">Our {{ category.name }} solutions are designed to accelerate your business growth and create sustainable value across African markets through innovative approaches and proven methodologies.</p>
+                    <a href="{% url 'contact' %}" class="btn" style="background: var(--gradient-bg); color: white; padding: 14px 32px; border-radius: 8px; font-weight: 600; text-decoration: none; border: none;">Start Your Journey</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section style="padding: 100px 0; background: linear-gradient(135deg, #f8fafb 0%, #ffffff 100%);">
+    <div class="container">
+        <div class="text-center p-5 rounded-4 shadow-lg" style="background: var(--dark-gradient); color: white;">
+            <h2 class="display-5 fw-bold mb-4 text-white">Ready to Get Started?</h2>
+            <p class="lead mb-5" style="color: rgba(255,255,255,0.9); max-width: 600px; margin-left: auto; margin-right: auto;">Let's discuss how our {{ category.name }} solutions can benefit your business and drive sustainable growth across African markets.</p>
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
+                <a href="{% url 'contact' %}" class="btn" style="background: var(--gradient-bg); color: white; padding: 14px 32px; border-radius: 8px; font-weight: 600; text-decoration: none; border: none;">Contact Us Today</a>
+                <a href="{% url 'home' %}" class="btn" style="background: rgba(255,255,255,0.1); color: white; border: 2px solid rgba(255,255,255,0.3); padding: 12px 32px; border-radius: 8px; font-weight: 600; text-decoration: none;">Explore Other Subsidiaries</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+.service-card:hover, .gallery-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+</style>
+{% endblock %}

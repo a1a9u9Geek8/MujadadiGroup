@@ -1,0 +1,337 @@
+{% extends "core/base.html" %}
+{% block title %}Agriculture Division | Mujadadi Group{% endblock %}
+{% block description %}Sustainable food production, processing, and agro-innovation across Africa. From crop farming to food processing, we're feeding the continent.{% endblock %}
+
+{% block content %}
+<style>
+    .agri-hero { background: linear-gradient(135deg, #2d5016 0%, #4a7c59 50%, #6b8e23 100%); }
+    .agri-card { border-left: 4px solid #6b8e23; transition: all 0.3s; }
+    .agri-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(107, 142, 35, 0.2); }
+    .agri-icon { background: linear-gradient(135deg, #6b8e23, #8fbc8f); }
+    .agri-stats { background: linear-gradient(135deg, #f0f8e8, #e8f5e8); }
+    .agri-cta { background: linear-gradient(135deg, #6b8e23, #4a7c59); }
+</style>
+
+<!-- Hero Section -->
+<section class="agri-hero text-white py-5 mt-5">
+    <div class="container">
+        <div class="row align-items-center min-vh-50">
+            <div class="col-lg-6">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb text-white-50">
+                        <li class="breadcrumb-item"><a href="{% url 'home' %}" class="text-white-50">Home</a></li>
+                        <li class="breadcrumb-item active text-white">Agriculture</li>
+                    </ol>
+                </nav>
+                <h1 class="display-3 fw-bold mb-4">Agriculture Division</h1>
+                <p class="lead mb-4">Sustainable food production, processing, and agro-innovation across Africa</p>
+                <div class="d-flex gap-3">
+                    <a href="#services" class="btn btn-light btn-lg px-4">Our Services</a>
+                    <a href="#contact" class="btn btn-outline-light btn-lg px-4">Partner With Us</a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <div class="position-relative">
+                    <div class="bg-white bg-opacity-10 rounded-circle p-5 d-inline-block">
+                        <i class="bi bi-tree display-1"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mission Statement -->
+<section class="py-5 agri-stats">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="display-5 fw-bold text-success mb-4">Our Mission</h2>
+                <p class="lead text-muted">Sustainable food production, processing, and agro-innovation that feeds Africa while preserving our environment for future generations.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Agriculture Services -->
+<section id="services" class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold">Agriculture Services</h2>
+            <p class="lead text-muted">Comprehensive agricultural solutions from farm to table</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Crop Farming -->
+            <div class="col-lg-6">
+                <div class="card agri-card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="agri-icon rounded-circle p-3 me-3">
+                                <i class="bi bi-grain text-white fs-4"></i>
+                            </div>
+                            <h4 class="fw-bold mb-0">Crop Farming</h4>
+                        </div>
+                        <p class="text-muted">Cultivation of grains (maize, sorghum, millet, rice) and cash crops (cotton, soy, cassava) using modern sustainable farming techniques.</p>
+                        <div class="small text-muted mb-3">
+                            <strong>What we do:</strong> We operate large-scale farms across Nigeria and West Africa, utilizing precision agriculture, drought-resistant seeds, and sustainable irrigation systems. Our crop rotation programs maintain soil health while maximizing yields for both local consumption and export markets.
+                        </div>
+                        <div class="row g-2 mt-3">
+                            <div class="col-6"><span class="badge bg-success-subtle text-success">Maize</span></div>
+                            <div class="col-6"><span class="badge bg-success-subtle text-success">Sorghum</span></div>
+                            <div class="col-6"><span class="badge bg-success-subtle text-success">Rice</span></div>
+                            <div class="col-6"><span class="badge bg-success-subtle text-success">Cotton</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Poultry Division -->
+            <div class="col-lg-6">
+                <div class="card agri-card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="agri-icon rounded-circle p-3 me-3">
+                                <i class="bi bi-egg text-white fs-4"></i>
+                            </div>
+                            <h4 class="fw-bold mb-0">Poultry Division</h4>
+                        </div>
+                        <p class="text-muted">End-to-end chicken production pipeline covering layers, broilers, and hatchery operations.</p>
+                        <div class="small text-muted mb-3">
+                            <strong>What we do:</strong> Our modern poultry facilities house over 100,000 birds with automated feeding, climate control, and health monitoring systems. We supply fresh eggs daily to major retailers and process thousands of broilers weekly for both local markets and restaurants.
+                        </div>
+                        <ul class="list-unstyled mt-3">
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Layers: Table-egg production & distribution</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Broilers: Meat production (live & frozen)</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Hatchery: Breeding, hatching, and chick supply</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dairy Production -->
+            <div class="col-lg-6">
+                <div class="card agri-card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="agri-icon rounded-circle p-3 me-3">
+                                <i class="bi bi-cup-straw text-white fs-4"></i>
+                            </div>
+                            <h4 class="fw-bold mb-0">Dairy Production</h4>
+                        </div>
+                        <p class="text-muted">Cattle farms producing raw milk, yogurt, butter, and other dairy products with the highest quality standards.</p>
+                        <div class="small text-muted mb-3">
+                            <strong>What we do:</strong> Our dairy farms maintain herds of Holstein and local breeds, producing over 5,000 liters of milk daily. We operate modern processing facilities that pasteurize, package, and distribute fresh dairy products to supermarkets, schools, and hospitals across the region.
+                        </div>
+                        <div class="row g-2 mt-3">
+                            <div class="col-6"><span class="badge bg-success-subtle text-success">Raw Milk</span></div>
+                            <div class="col-6"><span class="badge bg-success-subtle text-success">Yogurt</span></div>
+                            <div class="col-6"><span class="badge bg-success-subtle text-success">Butter</span></div>
+                            <div class="col-6"><span class="badge bg-success-subtle text-success">Cheese</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fishery & Aquaculture -->
+            <div class="col-lg-6">
+                <div class="card agri-card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="agri-icon rounded-circle p-3 me-3">
+                                <i class="bi bi-water text-white fs-4"></i>
+                            </div>
+                            <h4 class="fw-bold mb-0">Fishery & Aquaculture</h4>
+                        </div>
+                        <p class="text-muted">Tilapia and catfish farms, feed mills, and processing facilities for local and export markets.</p>
+                        <div class="small text-muted mb-3">
+                            <strong>What we do:</strong> Our aquaculture facilities span 50+ ponds with recirculating water systems and automated feeding. We produce 200+ tons of fish annually, operating our own feed mills and processing plants that clean, fillet, and freeze fish for wholesale and retail distribution.
+                        </div>
+                        <ul class="list-unstyled mt-3">
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Tilapia farming</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Catfish production</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Fish processing & packaging</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Goat & Livestock Farming -->
+            <div class="col-lg-6">
+                <div class="card agri-card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="agri-icon rounded-circle p-3 me-3">
+                                <i class="bi bi-heart text-white fs-4"></i>
+                            </div>
+                            <h4 class="fw-bold mb-0">Goat & Livestock Farming</h4>
+                        </div>
+                        <p class="text-muted">Comprehensive meat and breeding programs for goats, sheep, and cattle with focus on genetic improvement.</p>
+                        <div class="small text-muted mb-3">
+                            <strong>What we do:</strong> We maintain breeding stock of improved breeds including Boer goats, Dorper sheep, and Brahman cattle. Our veterinary team ensures optimal health while our breeding programs focus on disease resistance, faster growth rates, and higher meat quality for premium markets.
+                        </div>
+                        <div class="row g-2 mt-3">
+                            <div class="col-4"><span class="badge bg-success-subtle text-success">Goats</span></div>
+                            <div class="col-4"><span class="badge bg-success-subtle text-success">Sheep</span></div>
+                            <div class="col-4"><span class="badge bg-success-subtle text-success">Cattle</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fertilizer & Agro-Chemicals -->
+            <div class="col-lg-6">
+                <div class="card agri-card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="agri-icon rounded-circle p-3 me-3">
+                                <i class="bi bi-droplet text-white fs-4"></i>
+                            </div>
+                            <h4 class="fw-bold mb-0">Fertilizer & Agro-Chemicals</h4>
+                        </div>
+                        <p class="text-muted">Production and distribution of organic & inorganic fertilizers, pesticides, and soil conditioners.</p>
+                        <div class="small text-muted mb-3">
+                            <strong>What we do:</strong> Our manufacturing facility produces NPK fertilizers, organic compost from farm waste, and bio-pesticides. We operate a network of agro-dealers across rural areas, providing farmers with quality inputs, soil testing services, and technical advice to maximize crop yields sustainably.
+                        </div>
+                        <ul class="list-unstyled mt-3">
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Organic fertilizers</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Inorganic fertilizers</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Soil conditioners</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Animal Feed Production -->
+            <div class="col-lg-6">
+                <div class="card agri-card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="agri-icon rounded-circle p-3 me-3">
+                                <i class="bi bi-bag text-white fs-4"></i>
+                            </div>
+                            <h4 class="fw-bold mb-0">Animal Feed Production</h4>
+                        </div>
+                        <p class="text-muted">Feed mill plants producing high-quality poultry, fish, and livestock feed blends with optimal nutrition.</p>
+                        <div class="small text-muted mb-3">
+                            <strong>What we do:</strong> Our feed mills process maize, soybean, and other grains into nutritionally balanced feeds. We formulate specific recipes for different animal ages and production stages, ensuring optimal growth rates and health. Our quality control lab tests every batch for protein content and safety.
+                        </div>
+                        <div class="row g-2 mt-3">
+                            <div class="col-6"><span class="badge bg-success-subtle text-success">Poultry Feed</span></div>
+                            <div class="col-6"><span class="badge bg-success-subtle text-success">Fish Feed</span></div>
+                            <div class="col-6"><span class="badge bg-success-subtle text-success">Livestock Feed</span></div>
+                            <div class="col-6"><span class="badge bg-success-subtle text-success">Custom Blends</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agro-Machinery & Equipment -->
+            <div class="col-lg-6">
+                <div class="card agri-card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="agri-icon rounded-circle p-3 me-3">
+                                <i class="bi bi-gear text-white fs-4"></i>
+                            </div>
+                            <h4 class="fw-bold mb-0">Agro-Machinery & Equipment</h4>
+                        </div>
+                        <p class="text-muted">Supply and leasing of tractors, planters, harvesters, irrigation systems and modern farming equipment.</p>
+                        <div class="small text-muted mb-3">
+                            <strong>What we do:</strong> We import and distribute John Deere, Massey Ferguson, and other quality brands. Our leasing program helps smallholder farmers access expensive machinery with flexible payment plans. We also provide maintenance services, spare parts, and operator training to ensure maximum equipment efficiency.
+                        </div>
+                        <ul class="list-unstyled mt-3">
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Tractors & planters</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Harvesters</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Irrigation systems</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Food Processing & Packaging -->
+            <div class="col-lg-6">
+                <div class="card agri-card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="agri-icon rounded-circle p-3 me-3">
+                                <i class="bi bi-box-seam text-white fs-4"></i>
+                            </div>
+                            <h4 class="fw-bold mb-0">Food Processing & Packaging</h4>
+                        </div>
+                        <p class="text-muted">Value-addition through grain milling, vegetable oil extraction, fruit juice packaging and food preservation.</p>
+                        <div class="small text-muted mb-3">
+                            <strong>What we do:</strong> Our processing facilities transform raw agricultural products into consumer-ready goods. We mill grains into flour, extract oil from groundnuts and soybeans, package fresh fruit juices, and use solar drying and cold storage to preserve foods. All products meet international food safety standards.
+                        </div>
+                        <div class="row g-2 mt-3">
+                            <div class="col-6"><span class="badge bg-success-subtle text-success">Grain Milling</span></div>
+                            <div class="col-6"><span class="badge bg-success-subtle text-success">Oil Extraction</span></div>
+                            <div class="col-6"><span class="badge bg-success-subtle text-success">Juice Packaging</span></div>
+                            <div class="col-6"><span class="badge bg-success-subtle text-success">Food Preservation</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Statistics -->
+<section class="py-5 agri-stats">
+    <div class="container">
+        <div class="row g-4 text-center">
+            <div class="col-lg-3 col-md-6">
+                <div class="bg-white rounded-4 p-4 shadow-sm">
+                    <div class="agri-icon rounded-circle p-3 d-inline-flex mb-3">
+                        <i class="bi bi-graph-up text-white fs-3"></i>
+                    </div>
+                    <h3 class="fw-bold text-success">10,000+</h3>
+                    <p class="text-muted mb-0">Hectares Under Cultivation</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="bg-white rounded-4 p-4 shadow-sm">
+                    <div class="agri-icon rounded-circle p-3 d-inline-flex mb-3">
+                        <i class="bi bi-people text-white fs-3"></i>
+                    </div>
+                    <h3 class="fw-bold text-success">5,000+</h3>
+                    <p class="text-muted mb-0">Farmers Supported</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="bg-white rounded-4 p-4 shadow-sm">
+                    <div class="agri-icon rounded-circle p-3 d-inline-flex mb-3">
+                        <i class="bi bi-truck text-white fs-3"></i>
+                    </div>
+                    <h3 class="fw-bold text-success">50,000+</h3>
+                    <p class="text-muted mb-0">Tons Processed Annually</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="bg-white rounded-4 p-4 shadow-sm">
+                    <div class="agri-icon rounded-circle p-3 d-inline-flex mb-3">
+                        <i class="bi bi-globe text-white fs-3"></i>
+                    </div>
+                    <h3 class="fw-bold text-success">15+</h3>
+                    <p class="text-muted mb-0">Countries Served</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section id="contact" class="py-5 agri-cta text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h2 class="display-6 fw-bold mb-3">Ready to Transform Agriculture?</h2>
+                <p class="lead mb-0">Partner with us to revolutionize food production and processing across Africa.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a href="{% url 'contact' %}" class="btn btn-light btn-lg px-5">Contact Us Today</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,358 @@
+{% extends "core/base.html" %}
+{% block title %}Mujadadi Group - Leading African Conglomerate{% endblock %}
+{% block description %}Mujadadi Group is a diversified African conglomerate driving innovation and growth across Agriculture, Pharmacy, Supply Chain, Logistics, Contracting, Energy, and Real Estate sectors.{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="amazon-hero">
+    <div class="container">
+        <div class="row align-items-center min-vh-100 py-5">
+            <div class="col-lg-6">
+                <div class="amazon-mb-lg">
+                    <span class="amazon-badge-blue">Africa's Leading Conglomerate</span>
+                </div>
+                
+                <h1 class="amazon-heading-xl amazon-mb-lg">
+                    Mujadadi Group: <span class="amazon-text-green">Transforming Africa</span>
+                </h1>
+                
+                <p class="amazon-body-lg amazon-text-secondary amazon-mb-xl">
+                    Diversified conglomerate with seven specialized subsidiaries delivering integrated solutions across Africa's most critical industries, from agriculture to real estate.
+                </p>
+                
+                <div class="d-flex gap-3 flex-wrap amazon-mb-xl">
+                    <div class="text-center">
+                        <div class="amazon-stat-number">7</div>
+                        <div class="amazon-stat-label">Subsidiaries</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="amazon-stat-number">15+</div>
+                        <div class="amazon-stat-label">Countries</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="amazon-stat-number">1000+</div>
+                        <div class="amazon-stat-label">Employees</div>
+                    </div>
+                </div>
+                
+                <div class="d-flex gap-3 flex-wrap">
+                    <a href="#business-units" class="amazon-btn-primary">
+                        Explore Our Companies
+                    </a>
+                    <a href="{% url 'contact' %}" class="amazon-btn-secondary">
+                        Partner With Us
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                {% if hero_images %}
+                <div class="position-relative">
+                    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner rounded-4 overflow-hidden">
+                            {% for image in hero_images %}
+                            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                <img src="{{ image.image.url }}" class="d-block w-100" alt="{{ image.title }}" style="height: 400px; object-fit: cover;">
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="amazon-section-alt">
+    <div class="container">
+        <div class="text-center amazon-mb-3xl">
+            <h2 class="amazon-heading-lg amazon-mb-lg">Our Impact Across Africa</h2>
+            <p class="amazon-body-lg amazon-text-secondary">Building sustainable businesses that drive economic growth and community development</p>
+        </div>
+        
+        <div class="amazon-grid">
+            <div class="amazon-stat-card">
+                <div class="amazon-icon" style="background: linear-gradient(135deg, var(--success-green), #74C69D);">
+                    <i class="bi bi-building"></i>
+                </div>
+                <div class="amazon-stat-number">500M+</div>
+                <div class="amazon-stat-label">Annual Revenue</div>
+                <p class="amazon-stat-description">Combined revenue across all subsidiaries</p>
+            </div>
+            
+            <div class="amazon-stat-card">
+                <div class="amazon-icon" style="background: linear-gradient(135deg, var(--accent-blue), #4A90E2);">
+                    <i class="bi bi-people"></i>
+                </div>
+                <div class="amazon-stat-number">2M+</div>
+                <div class="amazon-stat-label">People Served</div>
+                <p class="amazon-stat-description">Farmers, patients, and customers served</p>
+            </div>
+            
+            <div class="amazon-stat-card">
+                <div class="amazon-icon" style="background: linear-gradient(135deg, var(--primary-medium), var(--primary-light));">
+                    <i class="bi bi-globe-africa"></i>
+                </div>
+                <div class="amazon-stat-number">15+</div>
+                <div class="amazon-stat-label">Countries</div>
+                <p class="amazon-stat-description">Pan-African operations and partnerships</p>
+            </div>
+            
+            <div class="amazon-stat-card">
+                <div class="amazon-icon" style="background: linear-gradient(135deg, #6B73FF, #9B59B6);">
+                    <i class="bi bi-award"></i>
+                </div>
+                <div class="amazon-stat-number">25+</div>
+                <div class="amazon-stat-label">Years Experience</div>
+                <p class="amazon-stat-description">Decades of African market expertise</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Business Units Section -->
+<section id="business-units" class="amazon-section">
+    <div class="container">
+        <div class="text-center amazon-mb-3xl">
+            <span class="amazon-badge amazon-mb-lg">Our Subsidiaries</span>
+            <h2 class="amazon-heading-xl amazon-mb-lg">Seven Pillars of <span class="text-gradient-green">Excellence</span></h2>
+            <p class="amazon-body-lg amazon-text-secondary mx-auto" style="max-width: 600px;">
+                Each subsidiary operates as an independent company under the Mujadadi Group umbrella, specializing in their respective industries while leveraging group synergies.
+            </p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="nature-card eco-card h-100 shadow-sm">
+                    <div class="p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="agri-icon">
+                                <i class="bi bi-tree"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-deep-green">Agriculture</h5>
+                                <small class="text-nature-green">Sustainable Farming</small>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-3">Market-leading agribusiness with $150M+ annual revenue. Serving 2M+ farmers across 8 countries with 40% market share in key crops.</p>
+                        <div class="d-flex gap-2 align-items-center mb-3">
+                            <span class="sustainability-badge"><i class="bi bi-graph-up"></i>35% Growth</span>
+                            <span class="sustainability-badge"><i class="bi bi-award"></i>Market Leader</span>
+                        </div>
+                        <a href="{% url 'category_detail' 'agric' %}" class="btn-agriculture btn-sm">Learn More <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="nature-card eco-card h-100 shadow-sm">
+                    <div class="p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-primary bg-opacity-10 rounded-3 p-3 me-3">
+                                <i class="bi bi-heart-pulse text-primary fs-3"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Pharmacy & Labs</h5>
+                                <small class="text-muted">Healthcare Solutions</small>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-3">$80M+ pharmaceutical division with FDA-approved facilities. Serving 500+ hospitals across West Africa with 60% market penetration.</p>
+                        <a href="{% url 'category_detail' 'pharmacy' %}" class="btn btn-outline-primary btn-sm">Learn More <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="nature-card eco-card h-100 shadow-sm">
+                    <div class="p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-info bg-opacity-10 rounded-3 p-3 me-3">
+                                <i class="bi bi-boxes text-info fs-3"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Supply Chain</h5>
+                                <small class="text-muted">Procurement & Distribution</small>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-3">$200M+ supply chain network managing 10,000+ SKUs. Strategic partnerships with Fortune 500 companies and 95% on-time delivery.</p>
+                        <a href="{% url 'category_detail' 'supply-chain' %}" class="btn btn-outline-info btn-sm">Learn More <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="nature-card eco-card h-100 shadow-sm">
+                    <div class="p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-warning bg-opacity-10 rounded-3 p-3 me-3">
+                                <i class="bi bi-truck text-warning fs-3"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Logistics</h5>
+                                <small class="text-muted">Transportation Solutions</small>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-3">Pan-African logistics with 1,000+ vehicle fleet. Processing 50,000+ shipments monthly with industry-leading efficiency metrics.</p>
+                        <a href="{% url 'category_detail' 'logistics' %}" class="btn btn-outline-warning btn-sm">Learn More <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="nature-card eco-card h-100 shadow-sm">
+                    <div class="p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-secondary bg-opacity-10 rounded-3 p-3 me-3">
+                                <i class="bi bi-hammer text-secondary fs-3"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Contracting</h5>
+                                <small class="text-muted">Construction & EPC</small>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-3">$300M+ construction portfolio including infrastructure projects. Government contracts worth $500M+ with 98% completion rate.</p>
+                        <a href="{% url 'category_detail' 'contractor' %}" class="btn btn-outline-secondary btn-sm">Learn More <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="nature-card eco-card h-100 shadow-sm">
+                    <div class="p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-danger bg-opacity-10 rounded-3 p-3 me-3">
+                                <i class="bi bi-lightning text-danger fs-3"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Energy</h5>
+                                <small class="text-muted">Power Solutions</small>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-3">Clean energy investments generating 250MW capacity. Strategic positioning in Africa's $60B renewable energy transition.</p>
+                        <a href="{% url 'category_detail' 'energy' %}" class="btn btn-outline-danger btn-sm">Learn More <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="nature-card eco-card h-100 shadow-sm">
+                    <div class="p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-dark bg-opacity-10 rounded-3 p-3 me-3">
+                                <i class="bi bi-buildings text-dark fs-3"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Real Estate</h5>
+                                <small class="text-muted">Infrastructure Development</small>
+                            </div>
+                        </div>
+                        <p class="text-muted mb-3">Premium real estate portfolio valued at $400M+. Developing smart cities and industrial parks across major African markets.</p>
+                        <a href="{% url 'category_detail' 'real-estate' %}" class="btn btn-outline-dark btn-sm">Learn More <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Investment Advantages Section -->
+<section class="amazon-section-alt">
+    <div class="container">
+        <div class="amazon-grid-2">
+            <div>
+                <h2 class="amazon-heading-lg amazon-mb-lg">Why Choose Mujadadi Group</h2>
+                <div class="amazon-grid-2">
+                    <div class="d-flex align-items-start gap-3">
+                        <div class="amazon-icon" style="width: 48px; height: 48px; font-size: 1.2rem;">
+                            <i class="bi bi-graph-up"></i>
+                        </div>
+                        <div>
+                            <h6 class="amazon-text-primary amazon-mb-xs">Proven Excellence</h6>
+                            <p class="amazon-text-secondary small">25+ years of successful operations across Africa</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-start gap-3">
+                        <div class="amazon-icon" style="width: 48px; height: 48px; font-size: 1.2rem;">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <div>
+                            <h6 class="amazon-text-primary amazon-mb-xs">Diversified Strength</h6>
+                            <p class="amazon-text-secondary small">Seven specialized subsidiaries across stable sectors</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-start gap-3">
+                        <div class="amazon-icon" style="width: 48px; height: 48px; font-size: 1.2rem;">
+                            <i class="bi bi-globe"></i>
+                        </div>
+                        <div>
+                            <h6 class="amazon-text-primary amazon-mb-xs">Market Leadership</h6>
+                            <p class="amazon-text-secondary small">Leading positions in key African markets</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-start gap-3">
+                        <div class="amazon-icon" style="width: 48px; height: 48px; font-size: 1.2rem;">
+                            <i class="bi bi-award"></i>
+                        </div>
+                        <div>
+                            <h6 class="amazon-text-primary amazon-mb-xs">Sustainable Impact</h6>
+                            <p class="amazon-text-secondary small">Committed to environmental and social responsibility</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="amazon-card text-center">
+                <div class="amazon-icon mx-auto" style="width: 80px; height: 80px; font-size: 2rem;">
+                    <i class="bi bi-graph-up-arrow"></i>
+                </div>
+                <h4 class="amazon-text-primary amazon-mb-md">Partnership Opportunities</h4>
+                <p class="amazon-text-secondary amazon-mb-lg">Collaborate with Africa's leading conglomerate. Strategic partnerships and business opportunities available across our subsidiaries.</p>
+                <a href="{% url 'contact' %}" class="amazon-btn-primary">Explore Partnerships</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Section -->
+{% if featured_gallery %}
+<section class="amazon-section">
+    <div class="container">
+        <div class="text-center amazon-mb-3xl">
+            <h2 class="amazon-heading-lg amazon-mb-lg">Our Work in Action</h2>
+            <p class="amazon-body-lg amazon-text-secondary">Showcasing excellence across our seven business units</p>
+        </div>
+        
+        <div class="amazon-grid">
+            {% for image in featured_gallery %}
+            <div class="position-relative overflow-hidden rounded-3">
+                <img src="{{ image.image.url }}" class="w-100" alt="{{ image.title }}" style="height: 250px; object-fit: cover;">
+                <div class="position-absolute bottom-0 start-0 end-0 p-3" style="background: linear-gradient(transparent, rgba(0,0,0,0.7));">
+                    <h6 class="text-white mb-1">{{ image.title }}</h6>
+                    <small class="text-white-50">{{ image.category.name }}</small>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- CTA Section -->
+<section class="amazon-section-alt">
+    <div class="container">
+        <div class="amazon-card text-center" style="background: linear-gradient(135deg, var(--primary-dark), var(--primary-medium)); color: white;">
+            <h2 class="amazon-heading-lg text-white amazon-mb-lg">Ready to Work With Us?</h2>
+            <p class="amazon-body-lg amazon-mb-xl" style="color: rgba(255,255,255,0.8);">Connect with Mujadadi Group for business partnerships, services, or career opportunities across our seven subsidiaries.</p>
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
+                <a href="{% url 'contact' %}" class="amazon-btn-primary">Get In Touch</a>
+                <a href="{% url 'about' %}" class="amazon-btn-secondary" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); color: white;">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

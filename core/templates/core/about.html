@@ -1,0 +1,238 @@
+{% extends "core/base.html" %}
+{% block title %}About Us | Mujadadi Group{% endblock %}
+{% block description %}Learn about Mujadadi Group's mission, vision, and commitment to driving sustainable growth across Africa through innovation and excellence.{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="py-5 mt-5 bg-light-custom">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'home' %}" class="text-decoration-none">Home</a></li>
+                        <li class="breadcrumb-item active">About Us</li>
+                    </ol>
+                </nav>
+                <h1 class="display-4 fw-bold mb-3">About Mujadadi Group</h1>
+                <p class="lead text-muted mb-4">Africa's premier conglomerate building essential infrastructure, driving food security, and empowering communities across seven strategic industries.</p>
+            </div>
+            <div class="col-lg-6 text-center">
+                <div class="bg-white rounded-4 p-5 shadow-lg">
+                    <i class="bi bi-globe-africa display-1 text-primary mb-3"></i>
+                    <h3 class="fw-bold">Pan-African Vision</h3>
+                    <p class="text-muted">Transforming communities across the continent</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mission & Vision -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6">
+                <div class="bg-primary text-white rounded-4 p-5 h-100">
+                    <i class="bi bi-bullseye display-4 mb-4"></i>
+                    <h2 class="fw-bold mb-4">Our Mission</h2>
+                    <p class="lead mb-0">To drive sustainable economic growth across Africa by delivering innovative, integrated solutions across agriculture, healthcare, logistics, energy, and infrastructure sectors while empowering local communities and preserving our environment.</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="bg-success text-white rounded-4 p-5 h-100">
+                    <i class="bi bi-eye display-4 mb-4"></i>
+                    <h2 class="fw-bold mb-4">Our Vision</h2>
+                    <p class="lead mb-0">To be Africa's leading conglomerate, recognized for excellence, innovation, and sustainable practices, creating lasting value for stakeholders while contributing to the continent's transformation into a global economic powerhouse.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Story -->
+<section class="py-5 bg-light-custom">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h2 class="section-title display-6 fw-bold mb-4">Our Story</h2>
+                <p class="mb-4">Founded with a vision to transform Africa's economic landscape, Mujadadi Group began as a single-sector enterprise and has evolved into a diversified conglomerate spanning seven critical industries.</p>
+                <p class="mb-4">Our journey reflects Africa's own growth story - from traditional foundations to modern innovation, always maintaining our commitment to sustainability, community empowerment, and excellence in execution.</p>
+                <p class="mb-4">Today, we stand as a testament to what's possible when vision meets execution, serving clients across multiple African markets while maintaining our core values of integrity, innovation, and impact.</p>
+                <div class="d-flex gap-3">
+                    <a href="{% url 'contact' %}" class="btn btn-primary">Partner With Us</a>
+                    <a href="{% url 'careers' %}" class="btn btn-outline-primary">Join Our Team</a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="row g-4">
+                    <div class="col-6">
+                        <div class="bg-white rounded-4 p-4 text-center shadow-sm">
+                            <h3 class="fw-bold text-primary">7</h3>
+                            <p class="text-muted mb-0">Business Sectors</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="bg-white rounded-4 p-4 text-center shadow-sm">
+                            <h3 class="fw-bold text-success">1000+</h3>
+                            <p class="text-muted mb-0">Employees</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="bg-white rounded-4 p-4 text-center shadow-sm">
+                            <h3 class="fw-bold text-warning">15+</h3>
+                            <p class="text-muted mb-0">African Markets</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="bg-white rounded-4 p-4 text-center shadow-sm">
+                            <h3 class="fw-bold text-info">24/7</h3>
+                            <p class="text-muted mb-0">Operations</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Core Values -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title display-6 fw-bold">Our Core Values</h2>
+            <p class="lead text-muted">The principles that guide everything we do</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="card border-0 shadow-sm rounded-4 h-100 text-center">
+                    <div class="card-body p-4">
+                        <div class="bg-primary bg-opacity-10 rounded-circle p-3 d-inline-flex mb-3">
+                            <i class="bi bi-lightbulb text-primary fs-3"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Innovation</h5>
+                        <p class="text-muted">Pioneering solutions that address Africa's unique challenges with cutting-edge technology and creative thinking.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="card border-0 shadow-sm rounded-4 h-100 text-center">
+                    <div class="card-body p-4">
+                        <div class="bg-success bg-opacity-10 rounded-circle p-3 d-inline-flex mb-3">
+                            <i class="bi bi-leaf text-success fs-3"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Sustainability</h5>
+                        <p class="text-muted">Environmental stewardship and sustainable practices in all our operations for future generations.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="card border-0 shadow-sm rounded-4 h-100 text-center">
+                    <div class="card-body p-4">
+                        <div class="bg-warning bg-opacity-10 rounded-circle p-3 d-inline-flex mb-3">
+                            <i class="bi bi-graph-up-arrow text-warning fs-3"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Growth</h5>
+                        <p class="text-muted">Driving economic development and creating opportunities that benefit communities across Africa.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="card border-0 shadow-sm rounded-4 h-100 text-center">
+                    <div class="card-body p-4">
+                        <div class="bg-info bg-opacity-10 rounded-circle p-3 d-inline-flex mb-3">
+                            <i class="bi bi-people text-info fs-3"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Community</h5>
+                        <p class="text-muted">Empowering local communities through job creation, skills development, and social investment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Meet The Team -->
+<section class="py-5 bg-light-custom">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title display-6 fw-bold">Meet The Team</h2>
+            <p class="lead text-muted">Experienced professionals driving our vision forward</p>
+        </div>
+        
+        {% if team_members %}
+            {% regroup team_members by category as grouped_members %}
+            {% for group in grouped_members %}
+                <div class="mb-5">
+                    {% if group.grouper == 'executive' %}
+                        <h3 class="fw-bold text-center mb-4">Executive Leadership</h3>
+                    {% elif group.grouper == 'management' %}
+                        <h3 class="fw-bold text-center mb-4">Management Team</h3>
+                    {% elif group.grouper == 'staff' %}
+                        <h3 class="fw-bold text-center mb-4">Our Team</h3>
+                    {% elif group.grouper == 'advisor' %}
+                        <h3 class="fw-bold text-center mb-4">Advisory Board</h3>
+                    {% endif %}
+                    <div class="row g-4 justify-content-center">
+                        {% for member in group.list %}
+                        <div class="col-lg-4 col-md-6">
+                            <div class="card border-0 shadow-sm rounded-4 h-100 text-center">
+                                <div class="card-body p-4">
+                                    <div class="position-relative mb-4">
+                                        <img src="{{ member.image.url }}" class="rounded-circle" alt="{{ member.name }}" style="width: 120px; height: 120px; object-fit: cover;">
+                                    </div>
+                                    <h5 class="fw-bold mb-2">{{ member.name }}</h5>
+                                    <p class="text-primary fw-semibold mb-3">{{ member.position }}</p>
+                                    <p class="text-muted small mb-3">{{ member.bio }}</p>
+                                    <div class="d-flex justify-content-center gap-2">
+                                        {% if member.linkedin %}
+                                        <a href="{{ member.linkedin }}" target="_blank" class="btn btn-outline-primary btn-sm rounded-circle">
+                                            <i class="bi bi-linkedin"></i>
+                                        </a>
+                                        {% endif %}
+                                        {% if member.email %}
+                                        <a href="mailto:{{ member.email }}" class="btn btn-outline-primary btn-sm rounded-circle">
+                                            <i class="bi bi-envelope"></i>
+                                        </a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="bg-white rounded-4 p-5 shadow-sm text-center">
+                    <i class="bi bi-person-circle display-1 text-muted mb-4"></i>
+                    <h4 class="fw-bold mb-3">Executive Leadership</h4>
+                    <p class="text-muted mb-4">Our leadership team brings decades of combined experience across multiple industries, with deep expertise in African markets and a proven track record of building successful, sustainable businesses.</p>
+                    <a href="{% url 'contact' %}" class="btn btn-primary">Contact Leadership</a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="bg-primary rounded-4 p-5 text-white text-center">
+            <h2 class="fw-bold mb-3">Ready to Build Africa's Future Together?</h2>
+            <p class="lead mb-4">Join us in our mission to drive sustainable growth and innovation across the continent.</p>
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
+                <a href="{% url 'contact' %}" class="btn btn-light btn-lg px-4">Partner With Us</a>
+                <a href="{% url 'careers' %}" class="btn btn-outline-light btn-lg px-4">Explore Careers</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

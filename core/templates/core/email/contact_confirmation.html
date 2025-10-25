@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Mujadadi Group</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 20px; background-color: #f4f4f4; }
+        .container { max-width: 600px; margin: 0 auto; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+        .header { background: linear-gradient(135deg, #2c5aa0 0%, #1e3a8a 100%); color: white; padding: 40px 30px; text-align: center; }
+        .header h1 { margin: 0; font-size: 28px; }
+        .header p { margin: 10px 0 0 0; opacity: 0.9; }
+        .content { padding: 40px 30px; }
+        .greeting { font-size: 18px; color: #2c5aa0; margin-bottom: 20px; }
+        .message { font-size: 16px; margin-bottom: 30px; }
+        .highlight-box { background: #f8f9fa; padding: 25px; border-radius: 8px; border-left: 4px solid #28a745; margin: 30px 0; }
+        .business-units { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin: 30px 0; }
+        .unit { background: #f8f9fa; padding: 15px; border-radius: 8px; text-align: center; border: 2px solid transparent; transition: all 0.3s; }
+        .unit:hover { border-color: #2c5aa0; }
+        .unit-icon { font-size: 24px; margin-bottom: 8px; }
+        .unit-name { font-size: 12px; font-weight: bold; color: #2c5aa0; }
+        .footer { background: #2c5aa0; color: white; padding: 30px; text-align: center; }
+        .social-links { margin: 20px 0; }
+        .social-links a { color: white; text-decoration: none; margin: 0 10px; font-size: 20px; }
+        .contact-info { font-size: 14px; opacity: 0.9; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Thank You!</h1>
+            <p>Your message has been received</p>
+        </div>
+        
+        <div class="content">
+            <div class="greeting">Dear {{ contact_message.first_name }},</div>
+            
+            <div class="message">
+                Thank you for reaching out to <strong>Mujadadi Group</strong>. We have successfully received your message regarding "<em>{{ contact_message.subject }}</em>" and truly appreciate your interest in our services.
+            </div>
+
+            <div class="highlight-box">
+                <strong>🕒 What happens next?</strong><br>
+                Our team will review your inquiry and respond within <strong>24 hours</strong>. We're committed to providing you with the information and support you need.
+            </div>
+
+            <div class="message">
+                As Africa's premier diversified conglomerate, we operate across multiple sectors to drive economic growth and development:
+            </div>
+
+            <div class="business-units">
+                <div class="unit">
+                    <div class="unit-icon">🌾</div>
+                    <div class="unit-name">Agriculture</div>
+                </div>
+                <div class="unit">
+                    <div class="unit-icon">💊</div>
+                    <div class="unit-name">Pharmacy</div>
+                </div>
+                <div class="unit">
+                    <div class="unit-icon">📦</div>
+                    <div class="unit-name">Supply Chain</div>
+                </div>
+                <div class="unit">
+                    <div class="unit-icon">🚛</div>
+                    <div class="unit-name">Logistics</div>
+                </div>
+                <div class="unit">
+                    <div class="unit-icon">🏗️</div>
+                    <div class="unit-name">Contracting</div>
+                </div>
+                <div class="unit">
+                    <div class="unit-icon">⚡</div>
+                    <div class="unit-name">Energy</div>
+                </div>
+                <div class="unit">
+                    <div class="unit-icon">🏢</div>
+                    <div class="unit-name">Real Estate</div>
+                </div>
+            </div>
+
+            {% if contact_message.newsletter %}
+            <div class="highlight-box" style="border-left-color: #17a2b8; background: #d1ecf1;">
+                <strong>📧 Newsletter Subscription</strong><br>
+                You've been subscribed to our newsletter! Stay updated with our latest developments, projects, and opportunities across Africa.
+            </div>
+            {% endif %}
+
+            <div class="message">
+                If you have any urgent matters, please don't hesitate to call us directly. We look forward to the opportunity to work with you.
+            </div>
+        </div>
+
+        <div class="footer">
+            <h3>Mujadadi Group</h3>
+            <p><em>Africa's Premier Diversified Conglomerate</em></p>
+            
+            <div class="social-links">
+                <a href="https://facebook.com/MujadadiGroup">📘</a>
+                <a href="https://instagram.com/MujadadiGroup">📷</a>
+                <a href="https://twitter.com/MujadadiGroup">🐦</a>
+            </div>
+            
+            <div class="contact-info">
+                📧 info@mujadadi.com<br>
+                📞 +234 703 199 6548 | +1 (240) 264-0244<br>
+                📍 Ilorin, Kwara State, Nigeria
+            </div>
+        </div>
+    </div>
+</body>
+</html>
