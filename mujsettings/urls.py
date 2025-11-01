@@ -22,6 +22,7 @@ from django.contrib.sitemaps.views import sitemap
 from django.views.generic import TemplateView
 from core import views
 from core.sitemaps import StaticViewSitemap, CategorySitemap
+from core.create_admin_view import create_admin
 
 sitemaps = {
     'static': StaticViewSitemap,
@@ -40,6 +41,7 @@ urlpatterns = [
     path("terms-of-service/", views.terms_of_service, name="terms_of_service"),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('robots.txt', TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
+    path('create-admin/', create_admin, name='create_admin'),
 ]
 
 if settings.DEBUG:
