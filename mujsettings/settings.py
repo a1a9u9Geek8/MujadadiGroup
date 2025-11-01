@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
-    'storages',
     'core',   
 ]
 
@@ -138,29 +137,9 @@ STATICFILES_DIRS = [
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Media files
-USE_R2_STORAGE = os.getenv('USE_R2_STORAGE', 'False') == 'True'
-
-if USE_R2_STORAGE:
-    # Cloudflare R2 Storage
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-    AWS_ACCESS_KEY_ID = os.getenv('R2_ACCESS_KEY_ID')
-    AWS_SECRET_ACCESS_KEY = os.getenv('R2_SECRET_ACCESS_KEY')
-    AWS_STORAGE_BUCKET_NAME = os.getenv('R2_BUCKET_NAME')
-    AWS_S3_ENDPOINT_URL = os.getenv('R2_ENDPOINT_URL')
-    AWS_S3_CUSTOM_DOMAIN = 'media.mujadadigroup.com'
-    AWS_DEFAULT_ACL = 'public-read'
-    AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
-    AWS_QUERYSTRING_AUTH = False
-    AWS_S3_FILE_OVERWRITE = False
-    AWS_S3_REGION_NAME = 'auto'
-    AWS_S3_SIGNATURE_VERSION = 's3v4'
-    # Force custom domain usage
-    MEDIA_URL = 'https://media.mujadadigroup.com/'
-else:
-    # Local media files
-    MEDIA_URL = '/media/'
-    MEDIA_ROOT = BASE_DIR / 'media'
+# Media files - Use GitHub for media storage
+MEDIA_URL = 'https://raw.githubusercontent.com/a1a9u9Geek8/MujadadiGroup/main/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
