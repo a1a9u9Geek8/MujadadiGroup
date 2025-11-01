@@ -7,9 +7,22 @@ from django.shortcuts import render
 def create_admin(request):
     message = None
     if request.method == 'POST' and request.POST.get('secret') == 'create_admin_now':
-        if not User.objects.filter(username='Mujadadi').exists():
-            User.objects.create_superuser('Mujadadi', 'mujadadigroup@gmail.com', 'MujadadiGroup2024!')
+        # Always ensure admin exists with correct password
+        user, created = User.objects.get_or_create(
+            username='Mujadadi',
+            defaults={
+                'email': 'mujadadigroup@gmail.com',
+                'is_superuser': True,
+                'is_staff': True
+            }
+        )
+        user.set_password('MujadadiGroup2024!')
+        user.is_superuser = True
+        user.is_staff = True
+        user.save()
+        
+        if created:
             message = 'Admin user created successfully! Username: Mujadadi, Password: MujadadiGroup2024!'
         else:
-            message = 'Admin user already exists'
+            message = 'Admin user updated successfully! Username: Mujadadi, Password: MujadadiGroup2024!'
     return render(request, 'core/create_admin.html', {'message': message})
