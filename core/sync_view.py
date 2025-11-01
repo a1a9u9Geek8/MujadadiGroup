@@ -1,6 +1,8 @@
 from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 from core.models import HeroImage
 
+@csrf_exempt
 def sync_images(request):
     if request.method == 'POST' and request.POST.get('secret') == 'sync_images_now':
         # Images that exist in GitHub
