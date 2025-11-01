@@ -155,8 +155,8 @@ if USE_R2_STORAGE:
     AWS_S3_FILE_OVERWRITE = False
     AWS_S3_REGION_NAME = 'auto'
     AWS_S3_SIGNATURE_VERSION = 's3v4'
-    # Use direct R2 URL for now
-    MEDIA_URL = f'{AWS_S3_ENDPOINT_URL}/{AWS_STORAGE_BUCKET_NAME}/'
+    # Use custom domain
+    MEDIA_URL = 'https://media.mujadadigroup.com/'
 else:
     # Local media files
     MEDIA_URL = '/media/'
