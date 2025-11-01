@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
+    'storages',
     'core',   
 ]
 
@@ -150,7 +151,12 @@ if USE_R2_STORAGE:
     AWS_S3_CUSTOM_DOMAIN = os.getenv('R2_CUSTOM_DOMAIN')
     AWS_DEFAULT_ACL = 'public-read'
     AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
-    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/'
+    AWS_QUERYSTRING_AUTH = False
+    AWS_S3_FILE_OVERWRITE = False
+    if AWS_S3_CUSTOM_DOMAIN:
+        MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/'
+    else:
+        MEDIA_URL = f'{AWS_S3_ENDPOINT_URL}/{AWS_STORAGE_BUCKET_NAME}/'
 else:
     # Local media files
     MEDIA_URL = '/media/'
