@@ -24,6 +24,7 @@ from core import views
 from core.sitemaps import StaticViewSitemap, CategorySitemap
 from core.create_admin_view import create_admin
 from core.debug_view import debug_media
+from core.sync_view import sync_images
 
 sitemaps = {
     'static': StaticViewSitemap,
@@ -44,6 +45,7 @@ urlpatterns = [
     path('robots.txt', TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
     path('create-admin/', create_admin, name='create_admin'),
     path('debug-media/', debug_media, name='debug_media'),
+    path('sync-images/', sync_images, name='sync_images'),
 ]
 
 if settings.DEBUG:
