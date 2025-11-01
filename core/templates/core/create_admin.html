@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Admin</title>
+</head>
+<body>
+    <h1>Create Admin User</h1>
+    <form method="post">
+        <input type="hidden" name="secret" value="create_admin_now">
+        <button type="submit">Create Admin User</button>
+    </form>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+</body>
+</html>
