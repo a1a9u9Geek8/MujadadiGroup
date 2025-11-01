@@ -148,14 +148,14 @@ if USE_R2_STORAGE:
     AWS_SECRET_ACCESS_KEY = os.getenv('R2_SECRET_ACCESS_KEY')
     AWS_STORAGE_BUCKET_NAME = os.getenv('R2_BUCKET_NAME')
     AWS_S3_ENDPOINT_URL = os.getenv('R2_ENDPOINT_URL')
-    AWS_S3_CUSTOM_DOMAIN = os.getenv('R2_CUSTOM_DOMAIN')
+    AWS_S3_CUSTOM_DOMAIN = 'media.mujadadigroup.com'
     AWS_DEFAULT_ACL = 'public-read'
     AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
     AWS_QUERYSTRING_AUTH = False
     AWS_S3_FILE_OVERWRITE = False
     AWS_S3_REGION_NAME = 'auto'
     AWS_S3_SIGNATURE_VERSION = 's3v4'
-    # Use custom domain
+    # Force custom domain usage
     MEDIA_URL = 'https://media.mujadadigroup.com/'
 else:
     # Local media files
