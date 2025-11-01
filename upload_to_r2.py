@@ -4,9 +4,9 @@ import boto3
 from pathlib import Path
 
 # R2 Configuration
-ACCESS_KEY = 'your-actual-access-key-id'
-SECRET_KEY = 'your-actual-secret-access-key'
-ENDPOINT_URL = 'https://your-account-id.r2.cloudflarestorage.com'
+ACCESS_KEY = '4d200015a33d5d7566cbc080ff6751f7'
+SECRET_KEY = '60af7996ed97c83600157057f899f4fd260ce337c07d86f3b6dc73a91e7512c5'
+ENDPOINT_URL = 'https://21b2ba3dc9c06196638ff51b74be82f5.r2.cloudflarestorage.com'
 BUCKET_NAME = 'mujadadi-media'
 
 # Initialize R2 client
