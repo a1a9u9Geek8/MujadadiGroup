@@ -11,6 +11,8 @@ def sync_images(request):
             ('hero/chickens.jpeg', 'Chickens'),
             ('hero/broilers.jpeg', 'Broilers'),
             ('hero/AgricMachinery.jpeg', 'Agricultural Machinery'),
+            ('hero/485960f8-c06c-44a0-832b-ed3f3299d26f.JPG', 'Hero Image 1'),
+            ('hero/4218f712-78e8-4830-b98d-61a09bd965ce.JPG', 'Hero Image 2'),
         ]
         
         created_count = 0
