@@ -1,0 +1,18 @@
+Sample images for the new sections:
+
+For Investor Relations:
+- investor1.jpg
+- investor2.jpg
+- annual_report.pdf
+
+For Sustainability:
+- sustainability1.jpg
+- sustainability2.jpg
+- sustainability_report.pdf
+
+For News & Media:
+- news1.jpg
+- news2.jpg
+- press_release.pdf
+
+Upload your images to the media folder in GitHub and reference them by filename in the admin panel.

@@ -177,8 +177,8 @@ class JobApplication(models.Model):
 class InvestorRelation(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
-    image = models.ImageField(upload_to='investor_relations/', blank=True, null=True)
-    document = models.FileField(upload_to='investor_docs/', blank=True, null=True)
+    image = models.CharField(max_length=500, blank=True, help_text="Image filename (e.g., investor1.jpg)")
+    document = models.CharField(max_length=500, blank=True, help_text="Document filename (e.g., report.pdf)")
     featured = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -195,8 +195,8 @@ class InvestorRelation(models.Model):
 class Sustainability(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
-    image = models.ImageField(upload_to='sustainability/', blank=True, null=True)
-    document = models.FileField(upload_to='sustainability_docs/', blank=True, null=True)
+    image = models.CharField(max_length=500, blank=True, help_text="Image filename (e.g., sustainability1.jpg)")
+    document = models.CharField(max_length=500, blank=True, help_text="Document filename (e.g., report.pdf)")
     featured = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -213,8 +213,8 @@ class Sustainability(models.Model):
 class NewsMedia(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
-    image = models.ImageField(upload_to='news_media/', blank=True, null=True)
-    document = models.FileField(upload_to='news_docs/', blank=True, null=True)
+    image = models.CharField(max_length=500, blank=True, help_text="Image filename (e.g., news1.jpg)")
+    document = models.CharField(max_length=500, blank=True, help_text="Document filename (e.g., press_release.pdf)")
     featured = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
