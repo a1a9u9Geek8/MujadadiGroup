@@ -342,6 +342,83 @@
 </section>
 {% endif %}
 
+<!-- News & Updates Section -->
+{% if news_media or investor_relations or sustainability %}
+<section class="amazon-section">
+    <div class="container">
+        <div class="text-center amazon-mb-3xl">
+            <h2 class="amazon-heading-lg amazon-mb-lg">Latest Updates</h2>
+            <p class="amazon-body-lg amazon-text-secondary">Stay informed about our progress and initiatives</p>
+        </div>
+        
+        <div class="row g-4">
+            {% if news_media %}
+            <div class="col-lg-4">
+                <div class="amazon-card h-100">
+                    <div class="amazon-icon mx-auto mb-3" style="width: 60px; height: 60px;">
+                        <i class="bi bi-newspaper"></i>
+                    </div>
+                    <h4 class="amazon-text-primary amazon-mb-md text-center">News & Media</h4>
+                    {% for item in news_media|slice:":2" %}
+                    <div class="mb-3 pb-3 border-bottom">
+                        <h6 class="fw-bold mb-2">{{ item.title }}</h6>
+                        <p class="text-muted small mb-1">{{ item.content|truncatewords:15 }}</p>
+                        <small class="text-primary">{{ item.created_at|date:"M d, Y" }}</small>
+                    </div>
+                    {% endfor %}
+                    <div class="text-center">
+                        <a href="{% url 'news_media' %}" class="amazon-btn-secondary btn-sm">View All News</a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            
+            {% if investor_relations %}
+            <div class="col-lg-4">
+                <div class="amazon-card h-100">
+                    <div class="amazon-icon mx-auto mb-3" style="width: 60px; height: 60px;">
+                        <i class="bi bi-graph-up"></i>
+                    </div>
+                    <h4 class="amazon-text-primary amazon-mb-md text-center">Investor Relations</h4>
+                    {% for item in investor_relations|slice:":2" %}
+                    <div class="mb-3 pb-3 border-bottom">
+                        <h6 class="fw-bold mb-2">{{ item.title }}</h6>
+                        <p class="text-muted small mb-1">{{ item.content|truncatewords:15 }}</p>
+                        <small class="text-primary">{{ item.created_at|date:"M d, Y" }}</small>
+                    </div>
+                    {% endfor %}
+                    <div class="text-center">
+                        <a href="{% url 'investor_relations' %}" class="amazon-btn-secondary btn-sm">View Investor Info</a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            
+            {% if sustainability %}
+            <div class="col-lg-4">
+                <div class="amazon-card h-100">
+                    <div class="amazon-icon mx-auto mb-3" style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--success-green), #74C69D);">
+                        <i class="bi bi-leaf"></i>
+                    </div>
+                    <h4 class="amazon-text-primary amazon-mb-md text-center">Sustainability</h4>
+                    {% for item in sustainability|slice:":2" %}
+                    <div class="mb-3 pb-3 border-bottom">
+                        <h6 class="fw-bold mb-2">{{ item.title }}</h6>
+                        <p class="text-muted small mb-1">{{ item.content|truncatewords:15 }}</p>
+                        <small class="text-success">{{ item.created_at|date:"M d, Y" }}</small>
+                    </div>
+                    {% endfor %}
+                    <div class="text-center">
+                        <a href="{% url 'sustainability' %}" class="amazon-btn-secondary btn-sm">View Initiatives</a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
 <!-- CTA Section -->
 <section class="amazon-section-alt">
     <div class="container">

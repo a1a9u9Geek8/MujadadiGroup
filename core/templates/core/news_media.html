@@ -1,0 +1,53 @@
+{% extends "core/base.html" %}
+{% block title %}News & Media | Mujadadi Group{% endblock %}
+{% block description %}Latest news, press releases, and media coverage of Mujadadi Group's activities across Africa.{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="py-5 mt-5 bg-light-custom">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'home' %}" class="text-decoration-none">Home</a></li>
+                        <li class="breadcrumb-item active">News & Media</li>
+                    </ol>
+                </nav>
+                <h1 class="display-4 fw-bold mb-3">News & Media</h1>
+                <p class="lead text-muted mb-4">Stay updated with the latest developments, achievements, and announcements from Mujadadi Group.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- News Content -->
+<section class="py-5">
+    <div class="container">
+        {% if news_media %}
+            <div class="row g-4">
+                {% for item in news_media %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="card border-0 shadow-sm rounded-4 h-100">
+                        {% if item.image %}
+                        <img src="{{ item.image.url }}" class="card-img-top rounded-top-4" alt="{{ item.title }}" style="height: 200px; object-fit: cover;">
+                        {% endif %}
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold mb-3">{{ item.title }}</h5>
+                            <p class="text-muted mb-3">{{ item.content|truncatewords:30 }}</p>
+                            <small class="text-primary">{{ item.created_at|date:"F d, Y" }}</small>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="text-center py-5">
+                <i class="bi bi-newspaper display-1 text-primary mb-3"></i>
+                <h3>News Updates Coming Soon</h3>
+                <p class="text-muted">We're preparing the latest news and media updates. Please check back soon.</p>
+            </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
