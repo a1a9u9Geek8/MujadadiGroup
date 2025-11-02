@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-)p$3^y8$+434-tgu&2_2x+%s%27&s#@)rno%=0x!dkwg47w_z4')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG', 'True') == 'True'
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1,mujadadigroup.com,www.mujadadigroup.com').split(',')
 
@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'mujsettings.wsgi.application'
 
 import dj_database_url
 
-DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql://mujadadi_admin_user:UAAQdldVB5GJBJYqUx8dQVNJffDKoEc8@dpg-d4350rili9vc73cjsbbg-a/mujadadi_admin')
+DATABASE_URL = os.getenv('POSTGRESS_DATABASE_URL', 'postgresql://mujadadi_admin_user:UAAQdldVB5GJBJYqUx8dQVNJffDKoEc8@dpg-d4350rili9vc73cjsbbg-a/mujadadi_admin')
 DATABASES = {
     'default': dj_database_url.parse(DATABASE_URL)
 }
