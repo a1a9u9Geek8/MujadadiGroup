@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.conf import settings
-from .models import Category, HeroImage, Gallery, ContactMessage, ContactInfo, TeamMember, JobApplication
+from .models import Category, HeroImage, Gallery, ContactMessage, ContactInfo, TeamMember, JobApplication, InvestorRelation, Sustainability, NewsMedia
 from .forms import ContactForm, JobApplicationForm
 
 def home(request):
@@ -11,11 +11,17 @@ def home(request):
     hero_images = HeroImage.objects.filter(is_active=True)[:3]
     featured_gallery = Gallery.objects.filter(is_featured=True)[:8]
     contact_info = ContactInfo.objects.filter(is_active=True).first()
+    investor_relations = InvestorRelation.objects.filter(featured=True)[:3]
+    sustainability = Sustainability.objects.filter(featured=True)[:3]
+    news_media = NewsMedia.objects.filter(featured=True)[:3]
     return render(request, "core/index.html", {
         "categories": categories, 
         "hero_images": hero_images,
         "featured_gallery": featured_gallery,
-        "contact_info": contact_info
+        "contact_info": contact_info,
+        "investor_relations": investor_relations,
+        "sustainability": sustainability,
+        "news_media": news_media
     })
 
 def category_detail(request, slug):
@@ -136,3 +142,27 @@ def privacy_policy(request):
 
 def terms_of_service(request):
     return render(request, "core/terms_of_service.html")
+
+def investor_relations(request):
+    items = InvestorRelation.objects.all().order_by('-created_at')
+    contact_info = ContactInfo.objects.filter(is_active=True).first()
+    return render(request, "core/investor_relations.html", {
+        "items": items,
+        "contact_info": contact_info
+    })
+
+def sustainability(request):
+    items = Sustainability.objects.all().order_by('-created_at')
+    contact_info = ContactInfo.objects.filter(is_active=True).first()
+    return render(request, "core/sustainability.html", {
+        "items": items,
+        "contact_info": contact_info
+    })
+
+def news_media(request):
+    items = NewsMedia.objects.all().order_by('-created_at')
+    contact_info = ContactInfo.objects.filter(is_active=True).first()
+    return render(request, "core/news_media.html", {
+        "items": items,
+        "contact_info": contact_info
+    })

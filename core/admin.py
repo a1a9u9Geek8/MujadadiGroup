@@ -3,7 +3,7 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.conf import settings
 from django.utils import timezone
-from .models import Category, Service, Gallery, HeroImage, ContactMessage, ContactInfo, Newsletter, TeamMember, JobApplication
+from .models import Category, Service, Gallery, HeroImage, ContactMessage, ContactInfo, Newsletter, TeamMember, JobApplication, InvestorRelation, Sustainability, NewsMedia
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
@@ -143,3 +143,30 @@ class JobApplicationAdmin(admin.ModelAdmin):
     
     def has_add_permission(self, request):
         return False
+
+
+@admin.register(InvestorRelation)
+class InvestorRelationAdmin(admin.ModelAdmin):
+    list_display = ['title', 'featured', 'created_at', 'updated_at']
+    list_filter = ['featured', 'created_at']
+    list_editable = ['featured']
+    search_fields = ['title', 'content']
+    readonly_fields = ['created_at', 'updated_at']
+
+
+@admin.register(Sustainability)
+class SustainabilityAdmin(admin.ModelAdmin):
+    list_display = ['title', 'featured', 'created_at', 'updated_at']
+    list_filter = ['featured', 'created_at']
+    list_editable = ['featured']
+    search_fields = ['title', 'content']
+    readonly_fields = ['created_at', 'updated_at']
+
+
+@admin.register(NewsMedia)
+class NewsMediaAdmin(admin.ModelAdmin):
+    list_display = ['title', 'featured', 'created_at', 'updated_at']
+    list_filter = ['featured', 'created_at']
+    list_editable = ['featured']
+    search_fields = ['title', 'content']
+    readonly_fields = ['created_at', 'updated_at']

@@ -172,3 +172,57 @@ class JobApplication(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name} - {self.get_position_applied_display()}"
+
+
+class InvestorRelation(models.Model):
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    image = models.ImageField(upload_to='investor_relations/', blank=True, null=True)
+    document = models.FileField(upload_to='investor_docs/', blank=True, null=True)
+    featured = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-featured', '-created_at']
+        verbose_name = "Investor Relation"
+        verbose_name_plural = "Investor Relations"
+
+    def __str__(self):
+        return self.title
+
+
+class Sustainability(models.Model):
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    image = models.ImageField(upload_to='sustainability/', blank=True, null=True)
+    document = models.FileField(upload_to='sustainability_docs/', blank=True, null=True)
+    featured = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-featured', '-created_at']
+        verbose_name = "Sustainability"
+        verbose_name_plural = "Sustainability"
+
+    def __str__(self):
+        return self.title
+
+
+class NewsMedia(models.Model):
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    image = models.ImageField(upload_to='news_media/', blank=True, null=True)
+    document = models.FileField(upload_to='news_docs/', blank=True, null=True)
+    featured = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-featured', '-created_at']
+        verbose_name = "News & Media"
+        verbose_name_plural = "News & Media"
+
+    def __str__(self):
+        return self.title
