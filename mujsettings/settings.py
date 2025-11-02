@@ -80,11 +80,11 @@ WSGI_APPLICATION = 'mujsettings.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-import dj_database_url
-
-DATABASE_URL = os.getenv('POSTGRESS_DATABASE_URL', 'postgresql://mujadadi_admin_user:UAAQdldVB5GJBJYqUx8dQVNJffDKoEc8@dpg-d4350rili9vc73cjsbbg-a/mujadadi_admin')
 DATABASES = {
-    'default': dj_database_url.parse(DATABASE_URL)
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 
