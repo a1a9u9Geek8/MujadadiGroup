@@ -44,6 +44,7 @@ urlpatterns = [
     path("investor-relations/", views.investor_relations, name="investor_relations"),
     path("sustainability/", views.sustainability, name="sustainability"),
     path("news-media/", views.news_media, name="news_media"),
+    path("setup-admin/", views.setup_admin, name="setup_admin"),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('robots.txt', TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
     path('create-admin/', create_admin, name='create_admin'),

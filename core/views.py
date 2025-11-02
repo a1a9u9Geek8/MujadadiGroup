@@ -3,6 +3,8 @@ from django.contrib import messages
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.conf import settings
+from django.http import HttpResponse
+from django.contrib.auth.models import User
 from .models import Category, HeroImage, Gallery, ContactMessage, ContactInfo, TeamMember, JobApplication, InvestorRelation, Sustainability, NewsMedia
 from .forms import ContactForm, JobApplicationForm
 
@@ -166,3 +168,23 @@ def news_media(request):
         "items": items,
         "contact_info": contact_info
     })
+
+def setup_admin(request):
+    try:
+        user, created = User.objects.get_or_create(
+            username='Mujadadi',
+            defaults={
+                'email': 'admin@mujadadi.com',
+                'is_staff': True,
+                'is_superuser': True,
+                'is_active': True,
+            }
+        )
+        user.set_password('MujadadiGroup2024!')
+        user.is_staff = True
+        user.is_superuser = True
+        user.is_active = True
+        user.save()
+        return HttpResponse("Admin user created successfully! Login at /admin/ with username: Mujadadi and password: MujadadiGroup2024!")
+    except Exception as e:
+        return HttpResponse(f"Error: {e}")
