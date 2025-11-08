@@ -10,5 +10,5 @@ python manage.py migrate --noinput
 # Collect static files
 python manage.py collectstatic --noinput
 
-# Create superuser from environment variables
-python create_superuser.py
+# Create admin user
+python simple_fix.py
