@@ -138,7 +138,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Media files - Use GitHub for media storage
-MEDIA_URL = 'https://raw.githubusercontent.com/a1a9u9Geek8/MujadadiGroup/main/media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
