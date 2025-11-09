@@ -22,6 +22,7 @@ from django.contrib.sitemaps.views import sitemap
 from django.views.generic import TemplateView
 from core import views
 from core.sitemaps import StaticViewSitemap, CategorySitemap
+from core.admin_creator import create_admin
 from core.create_admin_view import create_admin
 from core.debug_view import debug_media
 from core.sync_view import sync_images
@@ -47,6 +48,7 @@ urlpatterns = [
     path("setup-admin/", views.setup_admin, name="setup_admin"),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('robots.txt', TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
+    path('setup-admin/', create_admin, name='create_admin'),
     path('create-admin/', create_admin, name='create_admin'),
     path('debug-media/', debug_media, name='debug_media'),
     path('sync-images/', sync_images, name='sync_images'),
