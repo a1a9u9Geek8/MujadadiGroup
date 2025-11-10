@@ -23,6 +23,7 @@ from django.views.generic import TemplateView
 from core import views
 from core.sitemaps import StaticViewSitemap, CategorySitemap
 from core.admin_creator import create_admin
+from core.debug_db import debug_database
 
 sitemaps = {
     'static': StaticViewSitemap,
@@ -45,6 +46,7 @@ urlpatterns = [
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('robots.txt', TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
     path('setup-admin/', create_admin, name='create_admin'),
+    path('debug-db/', debug_database, name='debug_database'),
 ]
 
 # Serve media files in both development and production
